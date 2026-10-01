@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Garagem Exemplo · Estoque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--tinta:#14181f;--suave:#5d6673;--linha:#e3e6ea;--marca:#0f2a44;--acento:#e8a317;--zap:#1fa855;--vend:#c0392b;--res:#d68910}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--tinta);min-height:100vh;padding-bottom:84px}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.faixa{background:#fff6dc;color:#7a5600;font-size:12px;text-align:center;padding:6px 16px;border-bottom:1px solid #f0dfaa}
+header{background:var(--marca);color:#fff;position:sticky;top:0;z-index:20}
+.topo{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:12px 16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:18px}
+.logo i{width:34px;height:34px;border-radius:9px;background:var(--acento);display:grid;place-items:center;color:var(--marca);font-style:normal;font-size:17px}
+.logo span{white-space:nowrap;text-align:left}
+.logo small{display:block;font-weight:500;font-size:11px;opacity:.75;letter-spacing:0}
+.topo .esp{flex:1}
+.topo button.ic{color:#fff;opacity:.9;font-size:13px;display:flex;align-items:center;gap:6px;padding:8px 10px;border-radius:8px}
+.topo button.ic:hover{background:rgba(255,255,255,.1)}
+@media(max-width:500px){.topo .rot{display:none}.logo{font-size:16px}}
+body.sem-zap .zapfixo{display:none}
+body.painel .busca{display:none}
+.busca{max-width:1180px;margin:0 auto;padding:0 16px 14px}
+.busca div{display:flex;align-items:center;background:#fff;border-radius:12px;padding:0 12px;gap:8px}
+.busca input{flex:1;border:0;outline:0;padding:13px 0;font-size:15px;background:none;min-width:0}
+.busca svg{flex:none}
+main{max-width:1180px;margin:0 auto;padding:16px}
+h2{scroll-margin-top:180px;font-size:17px;font-weight:700;margin:22px 0 12px;display:flex;align-items:baseline;gap:8px}
+h2 small{font-weight:500;color:var(--suave);font-size:13px}
+.marcas{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(min-width:700px){.marcas{grid-template-columns:repeat(7,1fr)}}
+.marca{background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:14px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;transition:.15s}
+.marca:hover{border-color:var(--marca);transform:translateY(-1px)}
+.marca.on{border-color:var(--marca);box-shadow:0 0 0 2px var(--marca) inset}
+.marca svg{width:38px;height:38px;fill:var(--marca)}
+.marca b{font-size:11.5px;font-weight:600}
+.marca span{font-size:11px;color:var(--suave)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--linha);background:#fff;border-radius:99px;padding:8px 14px;font-size:13px;font-weight:500}
+.chip.on{background:var(--marca);color:#fff;border-color:var(--marca)}
+.grade{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:600px){.grade{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.grade{grid-template-columns:repeat(3,1fr)}}
+.car{background:var(--card);border:1px solid var(--linha);border-radius:16px;overflow:hidden;text-align:left;display:flex;flex-direction:column;position:relative;transition:.15s}
+.car:hover{box-shadow:0 6px 20px rgba(15,42,68,.10)}
+.foto{aspect-ratio:16/9;background:linear-gradient(180deg,#e9edf2,#d5dbe3);display:grid;place-items:center;position:relative;overflow:hidden}
+.foto svg{width:78%;height:auto}
+.foto img{width:100%;height:100%;object-fit:cover}
+.foto .leg{position:absolute;bottom:6px;right:8px;font-size:10px;color:#8a94a1}
+.selo{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;color:#fff;padding:4px 9px;border-radius:6px;letter-spacing:.4px}
+.selo.vendido{background:var(--vend)}.selo.reservado{background:var(--res)}.selo.novo{background:var(--zap)}
+.fav{position:absolute;top:8px;right:8px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;z-index:2}
+.fav svg{width:19px;height:19px;fill:none;stroke:#4a5260;stroke-width:2}
+.fav.on svg{fill:#e0245e;stroke:#e0245e}
+.info{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.info .tit{font-weight:700;font-size:15px;line-height:1.3}
+.info .tit small{display:block;font-weight:500;color:var(--suave);font-size:12px;margin-bottom:2px}
+.info .dados{font-size:12.5px;color:var(--suave);display:flex;flex-wrap:wrap;gap:4px 10px}
+.info .preco{font-size:19px;font-weight:800;color:var(--marca);margin-top:2px}
+.car.vendido .foto,.car.vendido .info{opacity:.55}
+.vazio{background:#fff;border:1px dashed var(--linha);border-radius:14px;padding:28px;text-align:center;color:var(--suave)}
+.filtro-ativo{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+.filtro-ativo button{font-size:13px;color:var(--marca);font-weight:600;text-decoration:underline}
+.loja{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;display:grid;gap:10px;margin-top:22px}
+@media(min-width:700px){.loja{grid-template-columns:repeat(3,1fr)}}
+.loja div{font-size:13.5px;color:var(--suave)}.loja b{display:block;color:var(--tinta);font-size:14px;margin-bottom:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:13px 16px;font-weight:700;font-size:15px}
+.btn.zap{background:var(--zap);color:#fff}
+.btn.sec{background:#fff;border:1px solid var(--linha)}
+.btn.pri{background:var(--marca);color:#fff}
+.zapfixo{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:var(--zap);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.zapfixo svg{width:30px;height:30px;fill:#fff}
+/* ficha */
+.voltar{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--marca);margin-bottom:12px;font-size:14px}
+.ficha{display:grid;gap:18px}
+@media(min-width:900px){.ficha{grid-template-columns:1.25fr 1fr;align-items:start}}
+.galeria .foto{border-radius:16px;aspect-ratio:4/3}
+.miniaturas{display:flex;gap:8px;margin-top:8px}
+.miniaturas div{flex:1;aspect-ratio:4/3;border-radius:10px;background:linear-gradient(180deg,#e9edf2,#d5dbe3);display:grid;place-items:center;font-size:10px;color:#8a94a1;border:2px solid transparent}
+.miniaturas div.on{border-color:var(--marca)}
+.painel-ficha{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.painel-ficha h1{font-size:22px;line-height:1.25}
+.painel-ficha h1 small{display:block;font-size:13px;color:var(--suave);font-weight:600;margin-bottom:4px}
+.painel-ficha .preco{font-size:28px;font-weight:800;color:var(--marca)}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:500px){.specs{grid-template-columns:repeat(3,1fr)}}
+.spec{background:var(--bg);border-radius:12px;padding:10px 12px}
+.spec span{display:block;font-size:11px;color:var(--suave)}
+.spec b{font-size:14px}
+.opc{display:flex;flex-wrap:wrap;gap:6px}
+.opc span{font-size:12px;background:#eef2f6;border-radius:99px;padding:5px 10px}
+.cod{font-size:12px;color:var(--suave)}
+/* modal */
+.fundo{position:fixed;inset:0;background:rgba(10,20,30,.55);display:none;align-items:flex-end;justify-content:center;z-index:50;padding:16px}
+.fundo.on{display:flex}
+@media(min-width:700px){.fundo{align-items:center}}
+.modal{background:#fff;border-radius:18px;max-width:440px;width:100%;padding:20px;display:flex;flex-direction:column;gap:12px;max-height:90vh;overflow:auto}
+.modal h3{font-size:17px}
+.bolha{background:#dcf8c6;border-radius:12px 12px 2px 12px;padding:12px 14px;font-size:14px;line-height:1.45;white-space:pre-wrap;align-self:flex-end;max-width:92%}
+.modal p{font-size:13px;color:var(--suave)}
+/* painel corretor */
+.form{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;display:grid;gap:12px}
+@media(min-width:700px){.form{grid-template-columns:repeat(2,1fr)}}
+.form label{font-size:12.5px;font-weight:600;display:flex;flex-direction:column;gap:5px}
+.form input,.form select{border:1px solid var(--linha);border-radius:10px;padding:11px 12px;font-size:15px;background:#fff;width:100%}
+.form .full{grid-column:1/-1}
+.upl{border:1px dashed #b9c2cd;border-radius:12px;padding:16px;text-align:center;font-size:13px;color:var(--suave);cursor:pointer;display:block}
+.lista-adm{display:flex;flex-direction:column;gap:8px}
+.adm{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.adm .t{flex:1;min-width:0;font-size:13.5px}
+.adm .t b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.adm .t span{color:var(--suave);font-size:12px}
+.adm select{border:1px solid var(--linha);border-radius:8px;padding:7px 8px;font-size:13px;background:#fff}
+.passos{display:flex;gap:10px;font-size:12.5px;color:var(--suave);flex-wrap:wrap}
+.passos span{background:#eef2f6;border-radius:8px;padding:5px 9px}
+.aviso-ok{background:#e7f6ec;color:#1b6b37;border-radius:10px;padding:10px 12px;font-size:13.5px;display:none}
+footer{text-align:center;font-size:12px;color:var(--suave);padding:26px 16px 0}
+</style>
+</head>
+<body>
+<div class="faixa">Prévia · carros, preços e telefone são de EXEMPLO · feito pela ZELES</div>
+<header>
+  <div class="topo">
+    <button class="logo" onclick="ir('')"><i>GE</i><span>Garagem Exemplo<small>Seminovos · Jataí-GO</small></span></button>
+    <div class="esp"></div>
+    <button class="ic" onclick="ir('favoritos')" aria-label="Favoritos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span id="nfav"></span></button>
+    <button class="ic" onclick="ir('painel')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span class="rot">Corretor</span></button>
+  </div>
+  <div class="busca"><div>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5d6673" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Modelo, ano, cor… ex.: hilux 2019" autocomplete="off">
+  </div></div>
+</header>
+<main id="app"></main>
+<footer>Garagem Exemplo · protótipo para validação · <a href="#" onclick="ir('painel');return false" style="color:inherit">área do corretor</a></footer>
+<button class="zapfixo" onclick="zap()" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></button>
+<div class="fundo" id="fundo" onclick="if(event.target===this)fechar()"><div class="modal" id="modal"></div></div>
+<script>
+const MARCAS={"toyota": {"nome": "Toyota", "d": "M12 3.848C5.223 3.848 0 7.298 0 12c0 4.702 5.224 8.152 12 8.152S24 16.702 24 12c0-4.702-5.223-8.152-12-8.152zm7.334 3.839c0 1.08-1.725 1.913-4.488 2.246-.26-2.58-1.005-4.279-1.963-4.913 2.948.184 6.45 1.227 6.45 2.667zM12 16.401c-.96 0-1.746-1.5-1.808-4.389.577.047 1.18.072 1.808.072.628 0 1.23-.025 1.807-.072-.061 2.89-.847 4.389-1.807 4.389zm0-6.308c-.59 0-1.155-.019-1.69-.054.261-1.728.92-3.15 1.69-3.15.77 0 1.428 1.422 1.689 3.15-.535.034-1.099.054-1.689.054zm-.882-5.075c-.956.633-1.706 2.333-1.964 4.915C6.391 9.6 4.665 8.767 4.665 7.687c0-1.44 3.504-2.49 6.453-2.669zM2.037 11.68a5.265 5.265 0 011.048-3.164c.27 1.547 2.522 2.881 5.972 3.37V12c0 3.772.879 6.203 2.087 6.97-5.107-.321-9.107-3.48-9.107-7.29zm10.823 7.29c1.207-.767 2.087-3.198 2.087-6.97v-.115c3.447-.488 5.704-1.826 5.972-3.37a5.26 5.26 0 011.049 3.165c-.004 3.81-4.008 6.969-9.109 7.29z"}, "honda": {"nome": "Honda", "d": "M23.902 6.87c-.33-3.218-2.47-3.895-4.354-4.204-.946-.16-2.63-.3-3.716-.34-.946-.06-3.168-.09-3.835-.09-.657 0-2.89.03-3.835.09-1.076.04-2.77.18-3.716.34C2.563 2.985.42 3.66.092 6.87c-.08.877-.1 2.023-.09 3.248.03 2.031.2 3.406.3 4.363.07.657.338 2.62.687 3.636.478 1.395.916 1.803 1.424 2.222.937.757 2.471.996 2.79 1.056 1.733.31 5.24.368 6.784.368 1.544 0 5.05-.05 6.784-.368.329-.06 1.863-.29 2.79-1.056.508-.419.946-.827 1.424-2.222.35-1.016.628-2.979.698-3.636.1-.957.279-2.332.299-4.363.04-1.225.01-2.371-.08-3.248m-1.176 5.4c-.19 2.57-.418 4.104-.747 5.22-.29.976-.637 1.623-1.165 2.092-.867.787-2.063.956-2.76 1.056-1.514.23-4.055.3-6.057.3-2.002 0-4.543-.08-6.057-.3-.697-.1-1.893-.269-2.76-1.056-.518-.469-.876-1.126-1.155-2.093-.329-1.105-.558-2.65-.747-5.22-.11-1.543-.09-4.054.08-5.4.258-2.011 1.255-3.018 3.387-3.396.996-.18 2.34-.31 3.606-.37 1.016-.07 2.7-.1 3.636-.09.936-.01 2.62.03 3.636.09 1.275.06 2.61.19 3.606.37 2.142.378 3.139 1.395 3.388 3.397.199 1.345.229 3.856.11 5.4m-5.202-8.39c-.548 2.462-.767 3.588-1.216 5.37-.428 1.715-.767 3.298-1.335 4.065-.587.777-1.365.947-1.893 1.006-.279.03-.478.04-1.066.05-.596 0-.796-.02-1.075-.05-.528-.06-1.315-.229-1.892-1.006-.578-.767-.907-2.35-1.335-4.064-.47-1.773-.678-2.91-1.236-5.37 0 0-.548.02-.797.04-.329.02-.588.05-.867.09.343 5.372.692 11.079 1.126 16.13a21.983 21.983 0 002.39.169c.33-1.266.748-3.02 1.207-3.767.378-.608.966-.677 1.295-.717.518-.07.956-.08 1.165-.08.2-.01.637 0 1.165.08.33.05.917.11 1.295.717.47.747.877 2.5 1.206 3.766 0 0 .358-.01 1.165-.05.41-.018.82-.058 1.226-.12.458-5.39.785-10.728 1.126-16.128-.28-.04-.538-.07-.867-.09-.23-.02-.787-.04-.787-.04z"}, "volkswagen": {"nome": "Volkswagen", "d": "M12 0C5.36 0 0 5.36 0 12S5.36 24 12 24 24 18.64 24 12 18.64 0 12 0M12 1.41C13.2 1.41 14.36 1.63 15.43 2L12.13 9.13C12.09 9.17 12.09 9.26 12 9.26S11.91 9.17 11.87 9.13L8.57 2C9.64 1.63 10.8 1.42 12 1.42M6.9 2.74L10.72 10.97C10.8 11.14 10.89 11.19 11 11.19H13C13.12 11.19 13.2 11.14 13.29 10.97L17.06 2.74C18.64 3.64 20 4.93 20.96 6.47L15.6 16.84C15.56 16.93 15.5 16.97 15.47 16.97C15.39 16.97 15.39 16.89 15.34 16.84L13.29 12.3C13.2 12.13 13.12 12.09 13 12.09H11C10.89 12.09 10.8 12.13 10.71 12.3L8.66 16.84C8.61 16.89 8.62 16.97 8.53 16.97C8.44 16.97 8.44 16.89 8.4 16.84L3 6.47C3.94 4.93 5.32 3.64 6.9 2.74M2.06 8.53L8.23 20.53C8.31 20.7 8.4 20.83 8.62 20.83C8.83 20.83 8.91 20.7 9 20.53L11.87 14.14C11.91 14.06 11.96 14 12 14C12.09 14 12.09 14.1 12.13 14.14L15.04 20.53C15.13 20.7 15.21 20.83 15.43 20.83C15.64 20.83 15.73 20.7 15.81 20.53L22 8.53C22.37 9.6 22.59 10.76 22.59 12C22.54 17.79 17.79 22.59 12 22.59C6.21 22.59 1.46 17.79 1.46 12C1.46 10.8 1.67 9.65 2.06 8.53Z"}, "chevrolet": {"nome": "Chevrolet", "d": "M23.905 9.784H15.92V8.246a.157.157 0 00-.157-.158H8.238a.157.157 0 00-.157.158v1.538H2.358c-.087 0-.193.07-.237.158L.02 14.058c-.045.088-.011.157.077.157H8.08v1.54c0 .086.07.157.157.157h7.525c.087 0 .157-.07.157-.157v-1.54h5.723c.087 0 .193-.07.238-.157l2.1-4.116c.045-.087.011-.158-.076-.158m-2.494.996l-1.244 2.437h-5.232v1.708H9.07v-1.708H2.595L3.84 10.78h5.232V9.073h5.864v1.707z"}, "fiat": {"nome": "Fiat", "d": "M21.175 6.25c.489 1.148.726 2.442.726 3.956 0 .818-.068 1.69-.206 2.666-.286 2.01-1.048 4.11-1.75 5.494-.114.223-.205.371-.388.533-.32.282-.602.352-.706.291-.084-.05-.131-.302-.114-.673.014-.316.089-.55.204-.924a36.261 36.261 0 0 0 1.2-5.416c.385-2.664.37-5.06-.201-6.52a2.224 2.224 0 0 0-.22-.427c-.062-.09-.106-.136-.106-.136-1.181-1.183-4.37-1.776-7.56-1.776-3.19 0-6.378.593-7.558 1.776 0 0-.045.045-.106.136a2.122 2.122 0 0 0-.221.426c-.572 1.46-.586 3.857-.201 6.521.26 1.807.672 3.72 1.227 5.504.096.307.158.516.173.84.016.369-.03.62-.114.67-.104.06-.389-.01-.71-.295-.23-.205-.345-.405-.49-.701-.68-1.385-1.393-3.397-1.667-5.323a18.884 18.884 0 0 1-.206-2.666c0-1.514.238-2.807.726-3.954.367-.86.983-1.58 1.782-2.083a13.892 13.892 0 0 1 6.526-2.122 13.9 13.9 0 0 1 .815-.026h.02c.274 0 .548.01.818.026 2.282.138 4.539.873 6.525 2.122a4.583 4.583 0 0 1 1.782 2.082zm-4.763 14.526c-.088.019-.361.083-.632.157-.243.067-.483.12-.597.143a16.51 16.51 0 0 1-3.115.285h-.028c-1.117 0-2.177-.103-3.114-.285a9.23 9.23 0 0 1-.56-.133 14.987 14.987 0 0 0-.604-.148c-.418-.095-.796-.163-.817-.083-.025.093.162.288.401.472.056.042.195.14.357.22.15.073.32.128.386.15 1.098.355 2.346.502 3.941.502h.022c1.563 0 2.794-.142 3.877-.483.371-.117.59-.211.853-.42.22-.174.385-.353.361-.44-.02-.075-.348-.021-.731.063zm-2.508-10.313c-.145-.81-.32-1.432-.518-1.85l-.002-.004h-.021l-.682-.006h-.01l-.027 2.998h1.426l-.001-.01c0-.005-.056-.522-.165-1.128zm5.76 1.687c-.322 2.228-.88 4.623-1.66 6.701-.13.35-.248.48-.53.7a6.23 6.23 0 0 1-2.431 1.028c-.897.175-1.908.272-2.974.272h-.029a15.66 15.66 0 0 1-2.973-.272 6.23 6.23 0 0 1-2.433-1.028c-.282-.22-.399-.35-.527-.7-.782-2.078-1.34-4.473-1.661-6.701-.373-2.577-.35-4.847.18-6.202.067-.17.138-.292.19-.369.046-.065.078-.1.078-.1 1.068-1.07 4.06-1.652 7.16-1.652 3.101 0 6.093.582 7.16 1.653 0 0 .032.033.078.1.052.076.124.197.19.368.531 1.355.554 3.625.182 6.202zM8.904 7.565L6.222 7.55l.267 9.337 1.122.012-.016-4.25h1.014v-1.097H7.595V8.66h1.31V7.564zm1.876-.02l-1.365.003.181 9.35h1.157l.027-9.352zm3.448.014h-2.732l.108 9.334h1.092l.009-4.222h1.418l.002.007c.128.797.138 4.171.138 4.205v.015h1.063l.009-.479c.048-2.42.13-6.469-1.107-8.86zm4.32-.013l-3.344.013v1.077h.998v.01l-.042 8.252h1.132l.275-8.262h.981v-1.09zM23.975 12c0 6.617-5.372 12-11.976 12C5.397 24 .025 18.617.025 12S5.397 0 12 0c6.604 0 11.976 5.383 11.976 12zm-.33-.008C23.64 5.561 18.418.33 11.998.33 5.642.33.46 5.463.358 11.811a1.71 1.71 0 0 1 .684-.78c.655-.388.834-1.385.893-1.981l.012-.062c-.039.395-.07.79-.07 1.218 0 .832.07 1.718.21 2.708.412 2.9 1.813 6.007 2.637 6.958l.046.05.192.202.007.006c2.01 1.647 3.857 2.23 7.061 2.23h.022c3.203 0 5.05-.583 7.06-2.23l.009-.006.185-.197.052-.056c.826-.954 2.226-4.057 2.638-6.957.14-.99.209-1.876.209-2.708 0-.454-.021-.89-.064-1.309l.006.006c.06.597.379 2.141.995 2.586.21.152.375.317.503.503z"}, "hyundai": {"nome": "Hyundai", "d": "M12 18.1622c-6.6275 0-12-2.7586-12-6.163 0-3.4028 5.3725-6.1614 12-6.1614 6.6278 0 12 2.7586 12 6.1614 0 3.4044-5.3722 6.163-12 6.163zM7.6023 7.17C3.701 7.9784.973 9.8302.973 11.9844c0 1.1929.8382 2.2932 2.248 3.1757.1174.0724.1941.0862.251.0826.1019-.006.1593-.0698.201-.146.028-.0485.0631-.1225.0972-.1968.4601-1.0834 2.0776-4.8333 4.2023-7.3758a1.1775 1.1775 0 0 0 .1048-.1461c.046-.084.0356-.1513.0006-.192-.0593-.0647-.2247-.065-.4756-.016zM9.742 8.8995c-1.1728 2.8492 1.0473 2.4961 1.6478 2.3637 1.0203-.2258 1.9944-.6128 2.7746-.925 2.2216-.8887 3.4012-1.7804 3.7925-2.123a1.9839 1.9839 0 0 0 .1076-.0988c.0557-.058.0976-.1192.0976-.2002 0-.0936-.081-.1687-.2374-.2231-.012-.0049-.0517-.021-.0641-.025-1.698-.5415-3.724-.8563-5.9016-.8563-.0168 0-.0586-.0022-.1169 0-.2608.0078-.5509.0664-.787.1888-.7777.4049-1.1163 1.4235-1.313 1.899zm10.5851.0037c-.0268.0487-.0612.1224-.0962.1974-.4599 1.0826-2.0774 4.831-4.2018 7.3733-.0515.063-.0796.1031-.1042.1467-.0492.0846-.0388.1535 0 .1935.0572.0641.2235.0654.474.0157 3.8998-.81 6.628-2.6606 6.628-4.8149 0-1.1925-.836-2.2928-2.2472-3.1745-.1161-.073-.1934-.0871-.25-.083-.1028.0067-.16.0699-.2026.1458zM14.258 15.099c1.173-2.849-1.0483-2.494-1.6467-2.3622-1.0218.225-1.996.613-2.7757.924-2.2226.8883-3.4017 1.782-3.7944 2.1234-.0468.0428-.0833.0742-.1066.0995-.0564.0573-.0967.1178-.0967.2007 0 .0923.08.1688.2362.2229.012.0048.0511.0213.0657.0255 1.696.54 3.722.8557 5.9.8557.0177 0 .0592.0016.1178 0 .2609-.0081.5522-.0677.7871-.1888.7781-.4052 1.1169-1.4234 1.3133-1.9007z"}, "jeep": {"nome": "Jeep", "d": "M4.1651 7.1687v5.2011c0 .6762-.444 1.0777-1.1628 1.0777-.7185 0-1.0992-.5283-1.0992-1.0992v-.9299H0v.9514c0 .972.296 2.7068 3.0235 2.7068 2.7272 0 3.1082-1.8614 3.1082-2.7488V7.1687Zm4.9177 2.1562c-1.7973 0-2.6003 1.6485-2.6003 3.0657 0 1.4168.9094 2.7912 2.7695 2.7912 1.6285.021 2.707-1.0361 2.707-1.8187h-1.7977s-.2113.5078-.8458.5078c-.6343 0-.9934-.3596-.9934-1.2265h3.6576c0-2.7277-1.3526-3.3195-2.897-3.3195zm5.8471 0c-1.7968 0-2.6007 1.6485-2.6007 3.0657 0 1.4168.9094 2.7912 2.7705 2.7912 1.628.021 2.7067-1.0361 2.7067-1.8187h-1.7978s-.2116.5078-.8454.5078c-.6348 0-.9942-.3596-.9942-1.2265h3.6574c0-2.7277-1.3523-3.3195-2.8965-3.3195zm6.7435.0635c-.9132 0-1.3186.4962-1.3401.522-.1283.1538-.2875.3165-.2875-.0782v-.2959h-1.8193v7.295h1.8398V14.822c0-.148.1478-.126.2543 0 .1063.1277.5711.4443 1.3752.4443C23.155 15.2663 24 13.9978 24 12.264c0-2.2415-1.4162-2.8757-2.3266-2.8756Zm-12.401 1.1203c.6766 0 .972.5073.972 1.0365H8.3843c0-.5718.2327-1.0365.8882-1.0365zm5.8468 0c.6767 0 .9724.5073.9724 1.0365H14.231c0-.5718.2332-1.0365.8883-1.0365zm5.9204.296c.9318 0 1.1.7189 1.1 1.4593 0 .74-.1272 1.7124-1.0141 1.7124-.8884 0-1.1212-.5709-1.1017-1.6486.022-1.0788.4441-1.523 1.0158-1.523zm2.2813 4.5664a.5855.5855 0 0 0-.5856.5857c0 .3233.2617.5856.5856.5856.3218 0 .585-.2623.585-.5856 0-.3233-.2632-.5857-.585-.5857zm0 .062a.524.524 0 0 1 .5236.5237c0 .2884-.2346.5246-.5236.5246a.5258.5258 0 0 1-.525-.5246c0-.289.2352-.5236.525-.5236zm-.2108.2024v.6208h.0725v-.2689h.1764l.1159.269h.0806l-.1216-.2873c.0386-.0133.0514-.0227.072-.0447.0266-.0287.0434-.0739.0434-.115 0-.1034-.0796-.174-.195-.174zm.0705.0676h.1722c.072 0 .1177.041.1177.1045 0 .072-.0485.1168-.1278.1168h-.1621z"}, "ford": {"nome": "Ford", "d": "M12 8.236C5.872 8.236.905 9.93.905 12.002S5.872 15.767 12 15.767c6.127 0 11.094-1.693 11.094-3.765 0-2.073-4.967-3.766-11.094-3.766zm-5.698 6.24c-.656.005-1.233-.4-1.3-1.101a1.415 1.415 0 0 1 .294-1.02c.195-.254.525-.465.804-.517.09-.017.213-.006.264.054.079.093.056.194-.023.234-.213.109-.47.295-.597.55a.675.675 0 0 0 .034.696c.263.397.997.408 1.679-.225.169-.156.32-.304.473-.48.3-.344.4-.47.8-1.024.005-.006.006-.014.004-.018-.003-.007-.009-.01-.02-.01-.267.007-.5.087-.725.255-.065.048-.159.041-.2-.021-.046-.07-.013-.163.062-.215.363-.253.76-.298 1.166-.367 0 0 .028.002.051-.03.167-.213.292-.405.47-.621.178-.22.41-.42.586-.572.246-.212.404-.283.564-.37.043-.022-.005-.049-.018-.049-.896-.168-1.827-.386-2.717-.056-.616.23-.887.718-.757 1.045.093.231.397.27.683.13a1.55 1.55 0 0 0 .611-.544c.087-.134.27-.038.171.195-.26.611-.757 1.097-1.363 1.118-.516.016-.849-.363-.848-.831.002-.924 1.03-1.532 2.11-1.622 1.301-.108 2.533.239 3.825.395.989.12 1.938.123 2.932-.106.118-.025.2.05.193.168-.01.172-.143.337-.47.516-.373.204-.763.266-1.17.27-.984.008-1.901-.376-2.85-.582.002.041.012.091-.023.117-.525.388-1 .782-1.318 1.334-.011.013-.005.025.013.024.277-.015.525-.022.783-.042.045-.004.047-.015.043-.048a.64.64 0 0 1 .2-.558c.172-.153.387-.17.53-.06.16.126.147.353.058.523a.63.63 0 0 1-.382.31s-.03.006-.026.034c.006.043.2.151.217.18.017.027.008.07-.021.102a.123.123 0 0 1-.095.045c-.033 0-.053-.012-.096-.035a.92.92 0 0 1-.27-.217c-.024-.031-.037-.032-.099-.029-.279.017-.714.059-1.009.096-.071.008-.082.022-.096.047-.47.775-.972 1.61-1.523 2.17-.592.6-1.083.758-1.604.762zM19.05 10.71c-.091.158-1.849 2.834-1.96 3.11-.035.088-.04.155-.004.204.092.124.297.051.425-.038.381-.262.645-.58.937-.858.017-.013.046-.018.065 0 .043.04.106.091.15.137a.04.04 0 0 1 .002.057 5.873 5.873 0 0 1-.904.911c-.47.364-.939.457-1.172.224a.508.508 0 0 1-.14-.316c-.002-.057-.031-.06-.058-.034-.278.275-.76.579-1.198.362-.366-.18-.451-.618-.383-.986.001-.008-.006-.06-.051-.03a1.28 1.28 0 0 1-.3.162.853.853 0 0 1-.366.077.518.518 0 0 1-.451-.253.759.759 0 0 1-.095-.347c-.001-.011-.017-.032-.033-.005-.3.457-.579.899-.875 1.363-.016.022-.03.036-.06.037l-.587.001c-.036 0-.053-.028-.034-.063.104-.2.674-1.03 1.06-1.736.107-.194.085-.294.019-.337-.083-.054-.248.027-.387.133-.379.287-.697.735-.859.935-.095.117-.185.291-.433.56-.391.425-.91.669-1.408.5a.848.848 0 0 1-.546-.58c-.015-.052-.044-.066-.073-.032-.08.1-.245.249-.383.342-.015.011-.052.033-.084.017a.851.851 0 0 1-.152-.199.07.07 0 0 1 .016-.08c.197-.173.305-.271.391-.38.064-.08.113-.17.17-.315.12-.302.393-.866.938-1.158a1.81 1.81 0 0 1 .652-.219c.1-.01.183.002.213.08.011.033.039.105.056.158.011.032.003.057-.035.071-.32.122-.643.311-.865.61-.253.338-.321.746-.152.98.123.17.322.2.514.139.29-.092.538-.363.666-.663.138-.329.16-.717.058-1.059-.016-.059-.001-.104.037-.136.077-.063.184-.112.215-.128a.14.14 0 0 1 .182.045c.106.157.163.378.17.607.006.049.026.05.05.025.19-.202.366-.418.568-.58.185-.147.422-.267.643-.262.286.006.428.2.419.546-.001.044.03.04.051.011a1.19 1.19 0 0 1 .24-.264c.198-.163.4-.236.611-.222.26.02.468.257.425.527a.53.53 0 0 1-.281.406.362.362 0 0 1-.405-.044.336.336 0 0 1-.096-.322c.005-.025-.027-.048-.054-.02-.254.264-.273.606-.107.76.183.17.458.056.658-.075.366-.239.65-.563.979-.813.218-.166.467-.314.746-.351a.87.87 0 0 1 .454.052c.2.081.326.25.342.396.004.043.036.048.063.01.158-.246 1.005-1.517 1.075-1.65.02-.041.044-.047.089-.047h.606c.035 0 .051.02.036.047zm-2.32 2.204a.053.053 0 0 0-.003.04c.003.02.03.04.056.05.01.003.015.01.004.032-.075.16-.143.252-.237.391a1.472 1.472 0 0 1-.3.325c-.178.147-.424.307-.628.2-.09-.047-.13-.174-.127-.276.004-.288.132-.584.369-.875.288-.355.607-.539.816-.438.216.103.148.354.05.55zm-5.949-1.881a.398.398 0 0 1 .132-.345c.057-.05.133-.062.18-.022.052.045.027.157-.026.234a.43.43 0 0 1-.245.177c-.018.004-.034-.004-.041-.044zM12 7.5C5.34 7.5 0 9.497 0 12c0 2.488 5.383 4.5 12 4.5s12-2.02 12-4.5-5.383-4.5-12-4.5zm0 8.608C5.649 16.108.5 14.27.5 12.002.5 9.733 5.65 7.895 12 7.895s11.498 1.838 11.498 4.107c0 2.268-5.148 4.106-11.498 4.106z"}, "renault": {"nome": "Renault", "d": "M17.463 11.99l-4.097-7.692-.924 1.707 3.213 5.985-5.483 10.283L4.69 11.99 11.096 0H9.27L2.882 11.99 9.269 24h1.807zm3.655 0L14.711 0h-1.807L6.517 11.99l4.117 7.712.904-1.707-3.193-6.005 5.463-10.263L19.29 11.99 12.904 24h1.807Z"}, "nissan": {"nome": "Nissan", "d": "M20.576 14.955l-.01.028c-1.247 3.643-4.685 6.086-8.561 6.086-3.876 0-7.32-2.448-8.562-6.09l-.01-.029H.71v.329l1.133.133c.7.08.847.39 1.038.78l.048.096c1.638 3.495 5.204 5.752 9.08 5.752 3.877 0 7.443-2.257 9.081-5.747l.048-.095c.19-.39.338-.7 1.038-.781l1.134-.134v-.328zM3.443 9.012c1.247-3.643 4.686-6.09 8.562-6.09 3.876 0 7.319 2.447 8.562 6.09l.01.028h2.728v-.328l-1.134-.133c-.7-.081-.847-.39-1.038-.781l-.047-.096C19.448 4.217 15.88 1.96 12.005 1.96c-3.881 0-7.443 2.257-9.081 5.752l-.048.095c-.19.39-.338.7-1.038.781l-1.133.133v.329h2.724zm13.862 1.586l-1.743 2.795h.752l.31-.5h2.033l.31.5h.747l-1.743-2.795zm1.033 1.766h-1.395l.7-1.124zm2.81-1.066l2.071 2.095H24v-2.795h-.614v2.085l-2.062-2.085h-.795v2.795h.619zM0 13.393h.619v-2.095l2.076 2.095h.781v-2.795h-.619v2.085L.795 10.598H0zm4.843-2.795h.619v2.795h-.62zm4.486 2.204c-.02.005-.096.005-.124.005H6.743v.572h2.5c.019 0 .167 0 .195-.005.51-.048.743-.472.743-.843 0-.381-.243-.79-.705-.833-.09-.01-.166-.01-.2-.01H7.643a.83.83 0 0 1-.181-.014c-.129-.034-.176-.148-.176-.243 0-.086.047-.2.18-.238a.68.68 0 0 1 .172-.014h2.357v-.562H7.6c-.1 0-.176.004-.238.014a.792.792 0 0 0-.695.805c0 .343.214.743.685.81.086.009.205.009.258.009H9.2c.029 0 .1 0 .114.005.181.023.243.157.243.276a.262.262 0 0 1-.228.266zm4.657 0c-.02.005-.096.005-.129.005H11.4v.572h2.5c.019 0 .167 0 .195-.005.51-.048.743-.472.743-.843 0-.381-.243-.79-.705-.833-.09-.01-.166-.01-.2-.01H12.3a.83.83 0 0 1-.181-.014c-.129-.034-.176-.148-.176-.243 0-.086.047-.2.18-.238a.68.68 0 0 1 .172-.014h2.357v-.562h-2.395c-.1 0-.176.004-.238.014a.792.792 0 0 0-.695.805c0 .343.214.743.686.81.085.009.204.009.257.009h1.59c.029 0 .1 0 .114.005.181.023.243.157.243.276a.267.267 0 0 1-.228.266Z"}};
+const BASE=[{"id": "V101", "marca": "toyota", "modelo": "Hilux SRV 2.8 4x4", "ano": 2019, "km": 98000, "preco": 219900, "cambio": "Automático", "comb": "Diesel", "cor": "Prata", "tipo": "picape", "status": "disponivel", "novo": 1, "ordem": 100}, {"id": "V102", "marca": "toyota", "modelo": "Corolla XEi 2.0", "ano": 2020, "km": 61000, "preco": 119900, "cambio": "Automático", "comb": "Flex", "cor": "Branco", "tipo": "sedan", "status": "disponivel", "novo": 0, "ordem": 1}, {"id": "V103", "marca": "honda", "modelo": "Civic EXL 2.0", "ano": 2018, "km": 74000, "preco": 104900, "cambio": "Automático", "comb": "Flex", "cor": "Preto", "tipo": "sedan", "status": "reservado", "novo": 0, "ordem": 2}, {"id": "V104", "marca": "honda", "modelo": "HR-V EXL 1.8", "ano": 2021, "km": 39000, "preco": 129900, "cambio": "Automático", "comb": "Flex", "cor": "Cinza", "tipo": "suv", "status": "disponivel", "novo": 1, "ordem": 97}, {"id": "V105", "marca": "volkswagen", "modelo": "Gol 1.0", "ano": 2019, "km": 68000, "preco": 49900, "cambio": "Manual", "comb": "Flex", "cor": "Branco", "tipo": "hatch", "status": "disponivel", "novo": 0, "ordem": 4}, {"id": "V106", "marca": "volkswagen", "modelo": "T-Cross Comfortline 200 TSI", "ano": 2022, "km": 28000, "preco": 124900, "cambio": "Automático", "comb": "Flex", "cor": "Azul", "tipo": "suv", "status": "disponivel", "novo": 1, "ordem": 95}, {"id": "V107", "marca": "volkswagen", "modelo": "Polo Highline TSI", "ano": 2021, "km": 35000, "preco": 94900, "cambio": "Automático", "comb": "Flex", "cor": "Vermelho", "tipo": "hatch", "status": "vendido", "novo": 0, "ordem": 6}, {"id": "V108", "marca": "chevrolet", "modelo": "Onix LT 1.0 Turbo", "ano": 2020, "km": 52000, "preco": 72900, "cambio": "Manual", "comb": "Flex", "cor": "Prata", "tipo": "hatch", "status": "disponivel", "novo": 0, "ordem": 7}, {"id": "V109", "marca": "chevrolet", "modelo": "S10 LTZ 2.8 4x4", "ano": 2018, "km": 121000, "preco": 159900, "cambio": "Automático", "comb": "Diesel", "cor": "Branco", "tipo": "picape", "status": "disponivel", "novo": 0, "ordem": 8}, {"id": "V110", "marca": "chevrolet", "modelo": "Tracker Premier 1.2 Turbo", "ano": 2021, "km": 44000, "preco": 119900, "cambio": "Automático", "comb": "Flex", "cor": "Preto", "tipo": "suv", "status": "disponivel", "novo": 0, "ordem": 9}, {"id": "V111", "marca": "fiat", "modelo": "Strada Volcano 1.3", "ano": 2022, "km": 31000, "preco": 104900, "cambio": "Automático", "comb": "Flex", "cor": "Vermelho", "tipo": "picape", "status": "disponivel", "novo": 1, "ordem": 90}, {"id": "V112", "marca": "fiat", "modelo": "Toro Freedom 2.0 4x4", "ano": 2020, "km": 87000, "preco": 129900, "cambio": "Automático", "comb": "Diesel", "cor": "Cinza", "tipo": "picape", "status": "disponivel", "novo": 0, "ordem": 11}, {"id": "V113", "marca": "fiat", "modelo": "Mobi Like 1.0", "ano": 2021, "km": 41000, "preco": 45900, "cambio": "Manual", "comb": "Flex", "cor": "Branco", "tipo": "hatch", "status": "disponivel", "novo": 0, "ordem": 12}, {"id": "V114", "marca": "hyundai", "modelo": "HB20 Comfort 1.0", "ano": 2020, "km": 57000, "preco": 62900, "cambio": "Manual", "comb": "Flex", "cor": "Prata", "tipo": "hatch", "status": "disponivel", "novo": 0, "ordem": 13}, {"id": "V115", "marca": "hyundai", "modelo": "Creta Limited 1.6", "ano": 2021, "km": 46000, "preco": 112900, "cambio": "Automático", "comb": "Flex", "cor": "Branco", "tipo": "suv", "status": "disponivel", "novo": 1, "ordem": 86}, {"id": "V116", "marca": "jeep", "modelo": "Compass Longitude 2.0", "ano": 2019, "km": 79000, "preco": 119900, "cambio": "Automático", "comb": "Diesel", "cor": "Preto", "tipo": "suv", "status": "disponivel", "novo": 0, "ordem": 15}, {"id": "V117", "marca": "jeep", "modelo": "Renegade Sport 1.8", "ano": 2020, "km": 63000, "preco": 84900, "cambio": "Automático", "comb": "Flex", "cor": "Laranja", "tipo": "suv", "status": "disponivel", "novo": 0, "ordem": 16}];
+const CORES={Prata:'#b9bec4',Branco:'#f4f4f4',Preto:'#25282d',Cinza:'#6b7178',Azul:'#2f5d9e',Vermelho:'#b3262d',Laranja:'#d9661f',Verde:'#2e7d4f',Bege:'#cbb79a'};
+const CORPO={
+ hatch:['M22,104 L22,80 Q24,68 42,66 L92,62 L126,36 Q134,30 150,30 L238,30 Q256,31 264,48 L280,70 Q298,74 298,90 L298,104 Z','M104,62 L132,38 Q138,35 150,35 L186,35 L186,62 Z M194,62 L194,35 L236,35 Q250,36 256,50 L262,62 Z'],
+ sedan:['M18,104 L18,82 Q20,70 38,68 L92,64 L128,38 Q138,32 158,32 L212,32 Q230,33 244,46 L266,66 L296,72 Q306,75 306,88 L306,104 Z','M106,64 L134,40 Q142,36 156,36 L180,36 L180,64 Z M188,64 L188,36 L210,36 Q226,37 236,48 L250,64 Z'],
+ suv:['M18,104 L18,74 Q20,62 36,60 L86,56 L108,26 Q114,20 128,20 L262,20 Q278,21 284,36 L292,60 Q304,64 304,80 L304,104 Z','M98,56 L116,30 Q120,25 130,25 L182,25 L182,56 Z M190,56 L190,25 L258,25 Q272,26 276,38 L282,56 Z'],
+ picape:['M14,104 L14,76 Q16,64 32,62 L78,58 L102,28 Q108,22 122,22 L186,22 Q196,22 198,32 L200,60 L302,60 Q308,60 308,70 L308,104 Z','M92,58 L110,32 Q114,27 124,27 L150,27 L150,58 Z M158,58 L158,27 L186,27 Q192,27 193,34 L194,58 Z']};
+function svgCarro(c){const [b,j]=CORPO[c.tipo]||CORPO.sedan;const cor=CORES[c.cor]||'#9aa3ad';const borda=c.cor==='Branco'?'#c9ced4':'rgba(0,0,0,.18)';
+ return `<svg viewBox="0 0 320 140" aria-hidden="true"><ellipse cx="160" cy="124" rx="140" ry="7" fill="rgba(0,0,0,.12)"/><path d="${b}" fill="${cor}" stroke="${borda}" stroke-width="2"/><path d="${j}" fill="rgba(200,225,245,.75)"/><circle cx="80" cy="106" r="20" fill="#1d2025"/><circle cx="80" cy="106" r="9" fill="#9aa3ad"/><circle cx="244" cy="106" r="20" fill="#1d2025"/><circle cx="244" cy="106" r="9" fill="#9aa3ad"/></svg>`}
+function ler(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}}
+function gravar(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+let extras=ler('ge_extras',[]), statusMud=ler('ge_status',{}), favs=ler('ge_favs',[]), fotos={};
+function estoque(){return [...extras,...BASE].map(c=>({...c,status:statusMud[c.id]||c.status}))}
+const brl=v=>'R$ '+Number(v).toLocaleString('pt-BR');
+const kmf=v=>Number(v).toLocaleString('pt-BR')+' km';
+const norm=s=>(s||'').toString().normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const FILTROS=[['ate50','Até R$ 50 mil',c=>c.preco<=50000],['ate100','Até R$ 100 mil',c=>c.preco<=100000],['auto','Automático',c=>c.cambio==='Automático'],['suv','SUV',c=>c.tipo==='suv'],['picape','Picape',c=>c.tipo==='picape'],['diesel','Diesel',c=>c.comb==='Diesel']];
+let st={q:'',marca:'',f:''};
+const $=s=>document.querySelector(s);
+function filtrar(){const q=norm(st.q).split(/\s+/).filter(Boolean);const f=FILTROS.find(x=>x[0]===st.f);
+ return estoque().filter(c=>(!st.marca||c.marca===st.marca)&&(!f||f[2](c))&&q.every(t=>norm([MARCAS[c.marca]?.nome,c.modelo,c.ano,c.cor,c.comb,c.cambio,c.tipo,c.id].join(' ')).includes(t)))
+  .sort((a,b)=>(a.status==='vendido')-(b.status==='vendido'))}
+function card(c){const fav=favs.includes(c.id);const selo=c.status!=='disponivel'?`<span class="selo ${c.status}">${c.status==='vendido'?'VENDIDO':'RESERVADO'}</span>`:(c.novo?'<span class="selo novo">CHEGOU</span>':'');
+ const img=fotos[c.id]?`<img src="${fotos[c.id]}" alt="">`:svgCarro(c)+'<span class="leg">foto do carro aqui</span>';
+ return `<div class="car ${c.status}"><button class="fav ${fav?'on':''}" onclick="event.stopPropagation();favoritar('${c.id}',this)" aria-label="Favoritar"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+ <button onclick="ir('carro/${c.id}')" style="text-align:left;display:flex;flex-direction:column"><div class="foto">${selo}${img}</div>
+ <div class="info"><div class="tit"><small>${MARCAS[c.marca]?.nome||''}</small>${c.modelo}</div><div class="dados"><span>${c.ano}</span><span>${kmf(c.km)}</span><span>${c.cambio}</span><span>${c.comb}</span></div><div class="preco">${brl(c.preco)}</div></div></button></div>`}
+function telaInicio(){const est=estoque().filter(c=>c.status!=='vendido');const cont={};est.forEach(c=>cont[c.marca]=(cont[c.marca]||0)+1);
+ const ms=Object.keys(MARCAS).filter(m=>cont[m]).sort((a,b)=>cont[b]-cont[a]);
+ const lista=filtrar();const busca=st.q||st.marca||st.f;
+ const novos=estoque().filter(c=>c.novo&&c.status!=='vendido').sort((a,b)=>b.ordem-a.ordem).slice(0,6);
+ $('#app').innerHTML=`
+ <h2>Escolha a marca <small>${est.length} carros disponíveis</small></h2>
+ <div class="marcas">${ms.map(m=>`<button class="marca ${st.marca===m?'on':''}" onclick="porMarca('${m}')"><svg viewBox="0 0 24 24"><path d="${MARCAS[m].d}"/></svg><b>${MARCAS[m].nome}</b><span>${cont[m]} ${cont[m]>1?'carros':'carro'}</span></button>`).join('')}</div>
+ <h2 style="margin-top:18px">Filtro rápido</h2>
+ <div class="chips">${FILTROS.map(f=>`<button class="chip ${st.f===f[0]?'on':''}" onclick="porFiltro('${f[0]}')">${f[1]}</button>`).join('')}</div>
+ ${busca?`<h2>${lista.length} ${lista.length===1?'carro encontrado':'carros encontrados'}</h2><div class="filtro-ativo" style="margin:-6px 0 12px">${st.marca?`<span class="chip on">${MARCAS[st.marca].nome}</span>`:''}${st.f?`<span class="chip on">${FILTROS.find(x=>x[0]===st.f)[1]}</span>`:''}${st.q?`<span class="chip on">“${st.q}”</span>`:''}<button onclick="limpar()">limpar</button></div>
+  ${lista.length?`<div class="grade">${lista.map(card).join('')}</div>`:`<div class="vazio">Nenhum carro com esse filtro agora.<br><br><button class="btn zap" onclick="zap('Olá! Procuro um carro que não achei no site: '+(st.q||''))">Me avise quando chegar</button></div>`}`
+ :`<h2>Chegaram agora</h2><div class="grade">${novos.map(card).join('')}</div>
+  <h2>Todo o estoque</h2><div class="grade">${lista.filter(c=>!c.novo).map(card).join('')}</div>`}
+ <div class="loja"><div><b>📍 Endereço</b>Av. Exemplo, 1000 · Centro · Jataí-GO</div><div><b>🕗 Horário</b>Seg a sex 8h–18h · Sáb 8h–12h</div><div><b>📅 Visita</b><button class="btn sec" style="padding:8px 12px;font-size:13px;margin-top:4px" onclick="zap('Olá! Quero agendar uma visita pra ver os carros.')">Agendar pelo WhatsApp</button></div></div>`}
+function telaCarro(id){const c=estoque().find(x=>x.id===id);if(!c){ir('');return}
+ const opc=['Ar-condicionado','Direção elétrica','Vidros elétricos','Central multimídia','Câmera de ré','Sensor de estacionamento'].concat(c.tipo==='picape'?['Tração 4x4','Capota marítima']:[]).concat(c.cambio==='Automático'?['Piloto automático']:[]);
+ const img=fotos[c.id]?`<img src="${fotos[c.id]}" alt="">`:svgCarro(c)+'<span class="leg">foto do carro aqui</span>';
+ const selo=c.status!=='disponivel'?`<span class="selo ${c.status}">${c.status==='vendido'?'VENDIDO':'RESERVADO'}</span>`:'';
+ const msg=`Olá! Vi no site o ${MARCAS[c.marca].nome} ${c.modelo} ${c.ano} (código ${c.id}, ${brl(c.preco)}). Ainda está disponível?`;
+ $('#app').innerHTML=`<button class="voltar" onclick="history.back()">← Voltar</button>
+ <div class="ficha"><div class="galeria"><div class="foto">${selo}${img}</div><div class="miniaturas"><div class="on">frente</div><div>lateral</div><div>interior</div><div>painel</div></div></div>
+ <div class="painel-ficha"><h1><small>${MARCAS[c.marca].nome} · ${c.ano}</small>${c.modelo}</h1><div class="preco">${brl(c.preco)}</div>
+ <div class="specs"><div class="spec"><span>Ano</span><b>${c.ano}</b></div><div class="spec"><span>Quilometragem</span><b>${kmf(c.km)}</b></div><div class="spec"><span>Câmbio</span><b>${c.cambio}</b></div><div class="spec"><span>Combustível</span><b>${c.comb}</b></div><div class="spec"><span>Cor</span><b>${c.cor}</b></div><div class="spec"><span>Código</span><b>${c.id}</b></div></div>
+ <div><b style="font-size:13px">Opcionais</b><div class="opc" style="margin-top:8px">${opc.map(o=>`<span>${o}</span>`).join('')}</div></div>
+ ${c.status==='vendido'?`<div class="vazio" style="padding:14px">Este carro já foi vendido. <button class="btn sec" style="margin-top:8px" onclick="zap('Olá! Vi que o ${c.modelo} foi vendido. Me avisa se chegar um parecido?')">Me avise se chegar um parecido</button></div>`
+ :`<button class="btn zap" onclick="zap(${JSON.stringify(msg).replace(/"/g,'&quot;')})"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Quero esse carro</button>
+ <button class="btn sec" onclick="favoritar('${c.id}');telaCarro('${c.id}')">${favs.includes(c.id)?'♥ Nos favoritos':'♡ Salvar nos favoritos'}</button>`}
+ <div class="cod">Link deste carro: <b>garagem.exemplo/${c.id}</b> · dá pra colar no vidro (QR) e no Instagram</div></div></div>`}
+function telaFavoritos(){const l=estoque().filter(c=>favs.includes(c.id));
+ $('#app').innerHTML=`<button class="voltar" onclick="ir('')">← Início</button><h2>Seus favoritos <small>ficam salvos neste celular, sem cadastro</small></h2>${l.length?`<div class="grade">${l.map(card).join('')}</div>`:'<div class="vazio">Toque no ♡ de um carro para guardar aqui.</div>'}`}
+function telaPainel(){const est=estoque();
+ $('#app').innerHTML=`<button class="voltar" onclick="ir('')">← Ver o site</button>
+ <h2>Área do corretor <small>cadastrar um carro em 2 minutos</small></h2>
+ <div class="passos"><span>1 · fotos</span><span>2 · dados</span><span>3 · publicar</span></div>
+ <form class="form" id="fcad" onsubmit="cadastrar(event)" style="margin-top:12px">
+ <label class="full upl" for="ffoto">📷 Toque para escolher a foto do carro<br><small>(na prévia ela fica só neste aparelho)</small><input id="ffoto" type="file" accept="image/*" hidden></label>
+ <label>Marca<select name="marca" required>${Object.keys(MARCAS).map(m=>`<option value="${m}">${MARCAS[m].nome}</option>`).join('')}</select></label>
+ <label>Modelo e versão<input name="modelo" required placeholder="ex.: Corolla XEi 2.0"></label>
+ <label>Ano<input name="ano" type="number" inputmode="numeric" required placeholder="2020" min="1980" max="2027"></label>
+ <label>Quilometragem<input name="km" type="number" inputmode="numeric" required placeholder="45000"></label>
+ <label>Preço (R$)<input name="preco" type="number" inputmode="numeric" required placeholder="89900"></label>
+ <label>Câmbio<select name="cambio"><option>Automático</option><option>Manual</option></select></label>
+ <label>Combustível<select name="comb"><option>Flex</option><option>Diesel</option><option>Gasolina</option><option>Elétrico</option><option>Híbrido</option></select></label>
+ <label>Cor<select name="cor">${Object.keys(CORES).map(c=>`<option>${c}</option>`).join('')}</select></label>
+ <label>Tipo<select name="tipo"><option value="hatch">Hatch</option><option value="sedan">Sedã</option><option value="suv">SUV</option><option value="picape">Picape</option></select></label>
+ <div class="full aviso-ok" id="ok">Publicado! Já aparece em “Chegaram agora”.</div>
+ <button class="btn pri full" type="submit">Publicar no site</button></form>
+ <h2>Estoque <small>mude o status num toque</small></h2>
+ <div class="lista-adm">${est.map(c=>`<div class="adm"><div class="t"><b>${MARCAS[c.marca].nome} ${c.modelo}</b><span>${c.id} · ${c.ano} · ${brl(c.preco)}</span></div><select onchange="mudarStatus('${c.id}',this.value)">${['disponivel','reservado','vendido'].map(s=>`<option value="${s}" ${c.status===s?'selected':''}>${{disponivel:'Disponível',reservado:'Reservado',vendido:'Vendido'}[s]}</option>`).join('')}</select></div>`).join('')}</div>
+ ${extras.length||Object.keys(statusMud).length?'<p style="margin-top:12px;font-size:12px;color:var(--suave)">Mudanças desta prévia ficam só neste aparelho. <button style="text-decoration:underline;font-size:12px;color:var(--marca)" onclick="zerar()">voltar ao estoque de exemplo</button></p>':''}`;
+ $('#ffoto').onchange=e=>{const f=e.target.files[0];if(f){$('.upl').innerHTML='✅ '+f.name;$('.upl').dataset.url=URL.createObjectURL(f)}}}
+function cadastrar(e){e.preventDefault();const d=Object.fromEntries(new FormData(e.target));const id='V'+(200+extras.length+1);
+ const c={id,marca:d.marca,modelo:d.modelo,ano:+d.ano,km:+d.km,preco:+d.preco,cambio:d.cambio,comb:d.comb,cor:d.cor,tipo:d.tipo,status:'disponivel',novo:1,ordem:1000+extras.length};
+ const u=$('.upl').dataset.url;if(u)fotos[id]=u;extras.unshift(c);gravar('ge_extras',extras);telaPainel();$('#ok').style.display='block';$('#ok').innerHTML=`Publicado! <b>${MARCAS[c.marca].nome} ${c.modelo}</b> já aparece em “Chegaram agora”. <a href="#" onclick="ir('');return false">ver no site</a>`}
+function mudarStatus(id,s){statusMud[id]=s;gravar('ge_status',statusMud)}
+function zerar(){extras=[];statusMud={};gravar('ge_extras',[]);gravar('ge_status',{});telaPainel()}
+function favoritar(id,el){favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];gravar('ge_favs',favs);if(el)el.classList.toggle('on');contarFav()}
+function contarFav(){$('#nfav').textContent=favs.length||''}
+function porMarca(m){st.marca=st.marca===m?'':m;telaInicio();rolarResultado()}
+function porFiltro(f){st.f=st.f===f?'':f;telaInicio();rolarResultado()}
+function limpar(){st={q:'',marca:'',f:''};$('#q').value='';telaInicio()}
+function rolarResultado(){const h=document.querySelectorAll('#app h2')[2];if(h&&innerWidth<700)h.scrollIntoView({behavior:'smooth',block:'start'})}
+function zap(msg){msg=msg||'Olá! Vim pelo site da Garagem Exemplo.';$('#modal').innerHTML=`<h3>WhatsApp do corretor</h3><p>Na versão real, este botão abre o WhatsApp do corretor já com a mensagem escrita:</p><div class="bolha">${msg}</div><p>Assim o cliente chega dizendo <b>qual</b> carro quer.</p><button class="btn pri" onclick="fechar()">Entendi</button>`;$('#fundo').classList.add('on')}
+function fechar(){$('#fundo').classList.remove('on')}
+function ir(r){if(location.hash.slice(1)===r)rota();else location.hash=r}
+function rota(){const h=decodeURIComponent(location.hash.slice(1));window.scrollTo(0,0);
+ document.body.classList.toggle('sem-zap',h.startsWith('carro/')||h==='painel');document.body.classList.toggle('painel',h==='painel');
+ if(h.startsWith('carro/'))telaCarro(h.slice(6));else if(h==='painel')telaPainel();else if(h==='favoritos')telaFavoritos();else telaInicio()}
+$('#q').addEventListener('input',e=>{st.q=e.target.value;if(location.hash&&location.hash!=='#'){location.hash=''}else telaInicio()});
+addEventListener('hashchange',rota);contarFav();rota();
+</script>
+</body>
+</html>

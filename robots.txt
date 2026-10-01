@@ -1,0 +1,3 @@
+# PREVIA do app do corretor de veiculos - nao indexar.
+User-agent: *
+Disallow: /
