@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="previa-commit" content="fb9c6558bdf5">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b86bf">
+<title>Marcelo R2 · Seminovos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--r2:#11a3d9;--topo:#0b86bf;--bg:#f4f5f7;--card:#fff;--tinta:#14181f;--suave:#5d6673;--linha:#e3e6ea;--marca:#0f2a44;--acento:#e8a317;--zap:#1fa855;--vend:#c0392b;--res:#d68910}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:var(--topo)}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--tinta);min-height:100vh;padding-bottom:84px;padding-top:var(--alt-topo,104px)}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.faixa{background:#fff6dc;color:#7a5600;font-size:12px;text-align:center;padding:6px 16px;border-bottom:1px solid #f0dfaa}
+header{background:var(--topo);color:#fff;position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top);box-shadow:0 2px 10px rgba(0,0,0,.18);transform:translateZ(0)}
+.topo{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:12px 16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:18px;color:#fff}
+.logo img{width:40px;height:40px;object-fit:contain;background:#fff;border-radius:50%}
+.logo span{white-space:nowrap;text-align:left}
+.logo small{display:block;font-weight:500;font-size:11px;opacity:.75;letter-spacing:0}
+.topo .esp{flex:1}
+.topo button.ic{color:#fff;font-size:13px;display:flex;align-items:center;gap:6px;padding:8px;border-radius:8px}
+.topo button.ic:hover{background:rgba(255,255,255,.14)}body:not(.busca-on) .busca{display:none}.busca div{border:1px solid var(--linha)}.menu{position:fixed;inset:0;z-index:60;display:none}.menu.on{display:block}.menu .vela{position:absolute;inset:0;background:rgba(10,20,30,.45)}.menu nav{position:absolute;top:0;right:0;bottom:0;width:min(300px,82vw);background:#fff;padding:20px 18px;display:flex;flex-direction:column;gap:4px;box-shadow:-8px 0 24px rgba(0,0,0,.15)}.menu nav button{text-align:left;font-size:16px;font-weight:600;padding:14px 8px;border-bottom:1px solid var(--linha);display:flex;justify-content:space-between}.menu nav .x{align-self:flex-end;font-size:26px;border:0;padding:0 6px 10px}
+@media(max-width:500px){.topo .rot{display:none}.logo{font-size:16px}}
+body.sem-zap .zapfixo{display:none}
+body.painel .busca{display:none}
+.busca{max-width:1180px;margin:0 auto;padding:0 16px 14px}
+.busca div{display:flex;align-items:center;background:#fff;border-radius:12px;padding:0 12px;gap:8px}
+.busca input{flex:1;border:0;outline:0;padding:13px 0;font-size:15px;background:none;min-width:0}
+.busca svg{flex:none}
+main{max-width:1180px;margin:0 auto;padding:16px}
+h2{scroll-margin-top:calc(var(--alt-topo,104px) + 16px);font-size:17px;font-weight:700;margin:22px 0 12px;display:flex;align-items:baseline;gap:8px}
+h2 small{font-weight:500;color:var(--suave);font-size:13px}
+.marcas{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(min-width:700px){.marcas{grid-template-columns:repeat(7,1fr)}}
+.marca{background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:14px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;transition:.15s}
+.marca:hover{border-color:var(--marca);transform:translateY(-1px)}
+.marca.on{border-color:var(--marca);box-shadow:0 0 0 2px var(--marca) inset}
+.marca svg{width:38px;height:38px;fill:var(--marca)}
+.marca b{font-size:11.5px;font-weight:600}
+.marca span{font-size:11px;color:var(--suave)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--linha);background:#fff;border-radius:99px;padding:8px 14px;font-size:13px;font-weight:500}
+.chip.on{background:var(--marca);color:#fff;border-color:var(--marca)}
+.grade{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:600px){.grade{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.grade{grid-template-columns:repeat(3,1fr)}}
+.car{background:var(--card);border:1px solid var(--linha);border-radius:16px;overflow:hidden;text-align:left;display:flex;flex-direction:column;position:relative;transition:.15s}
+.car:hover{box-shadow:0 6px 20px rgba(15,42,68,.10)}
+.foto{aspect-ratio:16/9;background:linear-gradient(180deg,#e9edf2,#d5dbe3);display:grid;place-items:center;position:relative;overflow:hidden}
+.foto svg{width:78%;height:auto}
+.foto img{width:100%;height:100%;object-fit:cover}
+.foto .leg{position:absolute;bottom:6px;right:8px;font-size:10px;color:#8a94a1}
+.selo{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;color:#fff;padding:4px 9px;border-radius:6px;letter-spacing:.4px}
+.selo.vendido{background:var(--vend)}.selo.reservado{background:var(--res)}.selo.novo{background:var(--zap)}
+.fav{position:absolute;top:8px;right:8px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;z-index:2}
+.fav svg{width:19px;height:19px;fill:none;stroke:#4a5260;stroke-width:2}
+.fav.on svg{fill:#e0245e;stroke:#e0245e}
+.info{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.info .tit{font-weight:700;font-size:15px;line-height:1.3}
+.info .tit small{display:block;font-weight:500;color:var(--suave);font-size:12px;margin-bottom:2px}
+.info .dados{font-size:12.5px;color:var(--suave);display:flex;flex-wrap:wrap;gap:4px 10px}
+.info .preco{font-size:19px;font-weight:800;color:var(--marca);margin-top:2px}
+.car.vendido .foto,.car.vendido .info{opacity:.55}
+.vazio{background:#fff;border:1px dashed var(--linha);border-radius:14px;padding:28px;text-align:center;color:var(--suave)}
+.filtro-ativo{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+.filtro-ativo button{font-size:13px;color:var(--marca);font-weight:600;text-decoration:underline}
+.loja{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;display:grid;gap:10px;margin-top:22px}
+@media(min-width:700px){.loja{grid-template-columns:repeat(3,1fr)}}
+.loja div{font-size:13.5px;color:var(--suave)}.loja b{display:block;color:var(--tinta);font-size:14px;margin-bottom:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:13px 16px;font-weight:700;font-size:15px}
+.btn.zap{background:var(--zap);color:#fff}
+.btn.sec{background:#fff;border:1px solid var(--linha)}
+.btn.pri{background:var(--marca);color:#fff}
+.zapfixo{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:var(--zap);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.zapfixo svg{width:32px;height:32px;fill:#fff;fill-rule:evenodd;position:relative;z-index:1}.zapfixo:before,.zapfixo:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--zap);animation:zaponda 2s ease-out infinite;pointer-events:none}.zapfixo:after{animation-delay:1s}@keyframes zaponda{0%{transform:scale(1);opacity:.85}100%{transform:scale(1.75);opacity:0}}@media(prefers-reduced-motion:reduce){.zapfixo:before,.zapfixo:after{animation:none;opacity:0}}
+/* ficha */
+.voltar{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--marca);margin-bottom:12px;font-size:14px}
+.ficha{display:grid;gap:18px}
+@media(min-width:900px){.ficha{grid-template-columns:1.25fr 1fr;align-items:start}}
+.ficha>*{min-width:0}.galeria .foto{border-radius:16px;aspect-ratio:4/3;background:#111}.galeria .foto img{position:absolute;inset:0;object-fit:contain}
+.miniaturas{display:flex;gap:8px;margin-top:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.miniaturas::-webkit-scrollbar{display:none}.miniaturas img{flex:none;width:84px;aspect-ratio:4/3;object-fit:cover;border-radius:10px;border:2px solid transparent;cursor:pointer}.miniaturas img.on{border-color:var(--marca)}.seta{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:64px;background:none;display:grid;place-items:center;font-size:42px;font-weight:300;line-height:1;color:#fff;z-index:2;text-shadow:0 1px 4px rgba(0,0,0,.55);opacity:.9}.seta.e{left:2px}.seta.d{right:2px}.galeria .cont{position:absolute;bottom:10px;right:12px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;padding:3px 8px;border-radius:99px}
+.miniaturas div{flex:1;aspect-ratio:4/3;border-radius:10px;background:linear-gradient(180deg,#e9edf2,#d5dbe3);display:grid;place-items:center;font-size:10px;color:#8a94a1;border:2px solid transparent}
+.miniaturas div.on{border-color:var(--marca)}
+.painel-ficha{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.painel-ficha h1{font-size:22px;line-height:1.25}
+.painel-ficha h1 small{display:block;font-size:13px;color:var(--suave);font-weight:600;margin-bottom:4px}
+.painel-ficha .preco{font-size:28px;font-weight:800;color:var(--marca)}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:500px){.specs{grid-template-columns:repeat(3,1fr)}}
+.spec{background:var(--bg);border-radius:12px;padding:10px 12px}
+.spec span{display:block;font-size:11px;color:var(--suave)}
+.spec b{font-size:14px}
+.opc{display:flex;flex-wrap:wrap;gap:6px}
+.opc span{font-size:12px;background:#eef2f6;border-radius:99px;padding:5px 10px}
+.cod{font-size:12px;color:var(--suave)}.hero{text-align:center;max-width:760px;margin:0 auto 22px;background:#fff;border-radius:18px;padding:26px 16px 22px;border:1px solid var(--linha)}.hero .mc{color:var(--r2);font-size:13px;font-weight:600;letter-spacing:.32em;text-transform:uppercase}.hero h1{font-size:clamp(24px,6.4vw,40px);font-weight:800;letter-spacing:.06em;text-transform:uppercase;line-height:1.15;margin:8px 0 18px}.tres{display:flex;justify-content:center;gap:clamp(18px,6vw,44px);text-align:left}.tres span{display:block;font-size:12px;color:var(--suave)}.tres b{font-size:clamp(14px,4vw,18px);font-weight:700;white-space:nowrap}.palco{margin:18px auto 0;width:100%;max-width:720px}.palco .foto{border-radius:0;aspect-ratio:1/1;background:#fff}.palco .foto img{object-fit:contain}.palco .miniaturas{justify-content:flex-start}.ficha.uma{grid-template-columns:1fr;max-width:760px;margin:0 auto}.secao{font-size:clamp(24px,6vw,32px);font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin:4px 0 12px}
+.pontos{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:12px}.pontos i{width:7px;height:7px;border-radius:50%;background:#c9cfd6;cursor:pointer}.pontos i.on{background:var(--r2);transform:scale(1.25)}
+.zoom{position:fixed;inset:0;z-index:70;background:#000;display:none;flex-direction:column;padding:env(safe-area-inset-top) 0 calc(10px + env(safe-area-inset-bottom))}.zoom.on{display:flex}.zoom .zx{position:absolute;top:calc(8px + env(safe-area-inset-top));right:10px;z-index:3;color:#fff;font-size:38px;font-weight:300;line-height:1;padding:4px 10px}.zpalco{flex:1;position:relative;display:grid;place-items:center;min-height:0}.zpalco img{max-width:100%;max-height:100%;object-fit:contain}.zoom .cont{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;background:rgba(0,0,0,.45);padding:3px 9px;border-radius:99px}.zoom .miniaturas{padding:8px 10px 0;justify-content:flex-start}.zoom .miniaturas img:first-child{margin-left:auto}.zoom .miniaturas img:last-child{margin-right:auto}.zoom .miniaturas img{width:64px;opacity:.6}.zoom .miniaturas img.on{opacity:1;border-color:#fff}
+/* modal */
+.fundo{position:fixed;inset:0;background:rgba(10,20,30,.55);display:none;align-items:flex-end;justify-content:center;z-index:50;padding:16px}
+.fundo.on{display:flex}
+@media(min-width:700px){.fundo{align-items:center}}
+.modal{background:#fff;border-radius:18px;max-width:440px;width:100%;padding:20px;display:flex;flex-direction:column;gap:12px;max-height:90vh;overflow:auto}
+.modal h3{font-size:17px}
+.bolha{background:#dcf8c6;border-radius:12px 12px 2px 12px;padding:12px 14px;font-size:14px;line-height:1.45;white-space:pre-wrap;align-self:flex-end;max-width:92%}
+.modal p{font-size:13px;color:var(--suave)}
+/* painel corretor */
+.form{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;display:grid;gap:12px}
+@media(min-width:700px){.form{grid-template-columns:repeat(2,1fr)}}
+.form label{font-size:12.5px;font-weight:600;display:flex;flex-direction:column;gap:5px}
+.form input,.form select{border:1px solid var(--linha);border-radius:10px;padding:11px 12px;font-size:15px;background:#fff;width:100%}
+.form .full{grid-column:1/-1}
+.upl{border:1px dashed #b9c2cd;border-radius:12px;padding:16px;text-align:center;font-size:13px;color:var(--suave);cursor:pointer;display:block}
+.lista-adm{display:flex;flex-direction:column;gap:8px}
+.adm{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.adm .t{flex:1;min-width:0;font-size:13.5px}
+.adm .t b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.adm .t span{color:var(--suave);font-size:12px}
+.adm select{border:1px solid var(--linha);border-radius:8px;padding:7px 8px;font-size:13px;background:#fff}
+.passos{display:flex;gap:10px;font-size:12.5px;color:var(--suave);flex-wrap:wrap}
+.passos span{background:#eef2f6;border-radius:8px;padding:5px 9px}
+.aviso-ok{background:#e7f6ec;color:#1b6b37;border-radius:10px;padding:10px 12px;font-size:13.5px;display:none}
+footer{text-align:center;font-size:12px;color:var(--suave);padding:26px 16px 0}
+</style>
+</head>
+<body>
+<header>
+<div class="faixa">Prévia · carros, fotos e preços REAIS · telefone do vendedor ainda a definir · feito pela ZELES</div>
+  <div class="topo">
+    <button class="logo" onclick="ir('')"><img src="logo_r2.png" alt="R2"><span>Marcelo R2</span></button>
+    <div class="esp"></div>
+    <button class="ic" id="blupa" onclick="lupa()" aria-label="Buscar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+    <button class="ic" id="bmenu" onclick="menu(1)" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="busca"><div>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5d6673" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Modelo, ano, marca… ex.: nivus 2024" autocomplete="off">
+  </div></div>
+</header>
+<div class="menu" id="menu"><div class="vela" onclick="menu(0)"></div><nav><button class="x" onclick="menu(0)" aria-label="Fechar">×</button><button onclick="menu(0);ir('')">Início</button><button onclick="menu(0);ir('favoritos')">Favoritos <span id="nfav"></span></button><button onclick="menu(0);ir('painel')">Área do corretor</button></nav></div>
+<main id="app"></main>
+<div class="zoom" id="zoom"><button class="zx" onclick="zoom(0)" aria-label="Fechar">×</button><div class="zpalco"><img id="zimg" alt=""><button class="seta e" onclick="gal(-1)" aria-label="Anterior">‹</button><button class="seta d" onclick="gal(1)" aria-label="Próxima">›</button><span class="cont" id="zcont"></span></div><div class="miniaturas" id="zmin"></div></div>
+<footer>Marcelo R2 · protótipo para validação · <a href="#" onclick="ir('painel');return false" style="color:inherit">área do corretor</a></footer>
+<button class="zapfixo" onclick="zap(zapMsg)" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></button>
+<div class="fundo" id="fundo" onclick="if(event.target===this)fechar()"><div class="modal" id="modal"></div></div>
+<script>
+const MARCAS={"volkswagen": {"nome": "Volkswagen", "d": "M12 0C5.36 0 0 5.36 0 12S5.36 24 12 24 24 18.64 24 12 18.64 0 12 0M12 1.41C13.2 1.41 14.36 1.63 15.43 2L12.13 9.13C12.09 9.17 12.09 9.26 12 9.26S11.91 9.17 11.87 9.13L8.57 2C9.64 1.63 10.8 1.42 12 1.42M6.9 2.74L10.72 10.97C10.8 11.14 10.89 11.19 11 11.19H13C13.12 11.19 13.2 11.14 13.29 10.97L17.06 2.74C18.64 3.64 20 4.93 20.96 6.47L15.6 16.84C15.56 16.93 15.5 16.97 15.47 16.97C15.39 16.97 15.39 16.89 15.34 16.84L13.29 12.3C13.2 12.13 13.12 12.09 13 12.09H11C10.89 12.09 10.8 12.13 10.71 12.3L8.66 16.84C8.61 16.89 8.62 16.97 8.53 16.97C8.44 16.97 8.44 16.89 8.4 16.84L3 6.47C3.94 4.93 5.32 3.64 6.9 2.74M2.06 8.53L8.23 20.53C8.31 20.7 8.4 20.83 8.62 20.83C8.83 20.83 8.91 20.7 9 20.53L11.87 14.14C11.91 14.06 11.96 14 12 14C12.09 14 12.09 14.1 12.13 14.14L15.04 20.53C15.13 20.7 15.21 20.83 15.43 20.83C15.64 20.83 15.73 20.7 15.81 20.53L22 8.53C22.37 9.6 22.59 10.76 22.59 12C22.54 17.79 17.79 22.59 12 22.59C6.21 22.59 1.46 17.79 1.46 12C1.46 10.8 1.67 9.65 2.06 8.53Z"}, "chevrolet": {"nome": "Chevrolet", "d": "M23.905 9.784H15.92V8.246a.157.157 0 00-.157-.158H8.238a.157.157 0 00-.157.158v1.538H2.358c-.087 0-.193.07-.237.158L.02 14.058c-.045.088-.011.157.077.157H8.08v1.54c0 .086.07.157.157.157h7.525c.087 0 .157-.07.157-.157v-1.54h5.723c.087 0 .193-.07.238-.157l2.1-4.116c.045-.087.011-.158-.076-.158m-2.494.996l-1.244 2.437h-5.232v1.708H9.07v-1.708H2.595L3.84 10.78h5.232V9.073h5.864v1.707z"}, "hyundai": {"nome": "Hyundai", "d": "M12 18.1622c-6.6275 0-12-2.7586-12-6.163 0-3.4028 5.3725-6.1614 12-6.1614 6.6278 0 12 2.7586 12 6.1614 0 3.4044-5.3722 6.163-12 6.163zM7.6023 7.17C3.701 7.9784.973 9.8302.973 11.9844c0 1.1929.8382 2.2932 2.248 3.1757.1174.0724.1941.0862.251.0826.1019-.006.1593-.0698.201-.146.028-.0485.0631-.1225.0972-.1968.4601-1.0834 2.0776-4.8333 4.2023-7.3758a1.1775 1.1775 0 0 0 .1048-.1461c.046-.084.0356-.1513.0006-.192-.0593-.0647-.2247-.065-.4756-.016zM9.742 8.8995c-1.1728 2.8492 1.0473 2.4961 1.6478 2.3637 1.0203-.2258 1.9944-.6128 2.7746-.925 2.2216-.8887 3.4012-1.7804 3.7925-2.123a1.9839 1.9839 0 0 0 .1076-.0988c.0557-.058.0976-.1192.0976-.2002 0-.0936-.081-.1687-.2374-.2231-.012-.0049-.0517-.021-.0641-.025-1.698-.5415-3.724-.8563-5.9016-.8563-.0168 0-.0586-.0022-.1169 0-.2608.0078-.5509.0664-.787.1888-.7777.4049-1.1163 1.4235-1.313 1.899zm10.5851.0037c-.0268.0487-.0612.1224-.0962.1974-.4599 1.0826-2.0774 4.831-4.2018 7.3733-.0515.063-.0796.1031-.1042.1467-.0492.0846-.0388.1535 0 .1935.0572.0641.2235.0654.474.0157 3.8998-.81 6.628-2.6606 6.628-4.8149 0-1.1925-.836-2.2928-2.2472-3.1745-.1161-.073-.1934-.0871-.25-.083-.1028.0067-.16.0699-.2026.1458zM14.258 15.099c1.173-2.849-1.0483-2.494-1.6467-2.3622-1.0218.225-1.996.613-2.7757.924-2.2226.8883-3.4017 1.782-3.7944 2.1234-.0468.0428-.0833.0742-.1066.0995-.0564.0573-.0967.1178-.0967.2007 0 .0923.08.1688.2362.2229.012.0048.0511.0213.0657.0255 1.696.54 3.722.8557 5.9.8557.0177 0 .0592.0016.1178 0 .2609-.0081.5522-.0677.7871-.1888.7781-.4052 1.1169-1.4234 1.3133-1.9007z"}, "jeep": {"nome": "Jeep", "d": "M4.1651 7.1687v5.2011c0 .6762-.444 1.0777-1.1628 1.0777-.7185 0-1.0992-.5283-1.0992-1.0992v-.9299H0v.9514c0 .972.296 2.7068 3.0235 2.7068 2.7272 0 3.1082-1.8614 3.1082-2.7488V7.1687Zm4.9177 2.1562c-1.7973 0-2.6003 1.6485-2.6003 3.0657 0 1.4168.9094 2.7912 2.7695 2.7912 1.6285.021 2.707-1.0361 2.707-1.8187h-1.7977s-.2113.5078-.8458.5078c-.6343 0-.9934-.3596-.9934-1.2265h3.6576c0-2.7277-1.3526-3.3195-2.897-3.3195zm5.8471 0c-1.7968 0-2.6007 1.6485-2.6007 3.0657 0 1.4168.9094 2.7912 2.7705 2.7912 1.628.021 2.7067-1.0361 2.7067-1.8187h-1.7978s-.2116.5078-.8454.5078c-.6348 0-.9942-.3596-.9942-1.2265h3.6574c0-2.7277-1.3523-3.3195-2.8965-3.3195zm6.7435.0635c-.9132 0-1.3186.4962-1.3401.522-.1283.1538-.2875.3165-.2875-.0782v-.2959h-1.8193v7.295h1.8398V14.822c0-.148.1478-.126.2543 0 .1063.1277.5711.4443 1.3752.4443C23.155 15.2663 24 13.9978 24 12.264c0-2.2415-1.4162-2.8757-2.3266-2.8756Zm-12.401 1.1203c.6766 0 .972.5073.972 1.0365H8.3843c0-.5718.2327-1.0365.8882-1.0365zm5.8468 0c.6767 0 .9724.5073.9724 1.0365H14.231c0-.5718.2332-1.0365.8883-1.0365zm5.9204.296c.9318 0 1.1.7189 1.1 1.4593 0 .74-.1272 1.7124-1.0141 1.7124-.8884 0-1.1212-.5709-1.1017-1.6486.022-1.0788.4441-1.523 1.0158-1.523zm2.2813 4.5664a.5855.5855 0 0 0-.5856.5857c0 .3233.2617.5856.5856.5856.3218 0 .585-.2623.585-.5856 0-.3233-.2632-.5857-.585-.5857zm0 .062a.524.524 0 0 1 .5236.5237c0 .2884-.2346.5246-.5236.5246a.5258.5258 0 0 1-.525-.5246c0-.289.2352-.5236.525-.5236zm-.2108.2024v.6208h.0725v-.2689h.1764l.1159.269h.0806l-.1216-.2873c.0386-.0133.0514-.0227.072-.0447.0266-.0287.0434-.0739.0434-.115 0-.1034-.0796-.174-.195-.174zm.0705.0676h.1722c.072 0 .1177.041.1177.1045 0 .072-.0485.1168-.1278.1168h-.1621z"}, "renault": {"nome": "Renault", "d": "M17.463 11.99l-4.097-7.692-.924 1.707 3.213 5.985-5.483 10.283L4.69 11.99 11.096 0H9.27L2.882 11.99 9.269 24h1.807zm3.655 0L14.711 0h-1.807L6.517 11.99l4.117 7.712.904-1.707-3.193-6.005 5.463-10.263L19.29 11.99 12.904 24h1.807Z"}, "fiat": {"nome": "Fiat", "d": "M21.175 6.25c.489 1.148.726 2.442.726 3.956 0 .818-.068 1.69-.206 2.666-.286 2.01-1.048 4.11-1.75 5.494-.114.223-.205.371-.388.533-.32.282-.602.352-.706.291-.084-.05-.131-.302-.114-.673.014-.316.089-.55.204-.924a36.261 36.261 0 0 0 1.2-5.416c.385-2.664.37-5.06-.201-6.52a2.224 2.224 0 0 0-.22-.427c-.062-.09-.106-.136-.106-.136-1.181-1.183-4.37-1.776-7.56-1.776-3.19 0-6.378.593-7.558 1.776 0 0-.045.045-.106.136a2.122 2.122 0 0 0-.221.426c-.572 1.46-.586 3.857-.201 6.521.26 1.807.672 3.72 1.227 5.504.096.307.158.516.173.84.016.369-.03.62-.114.67-.104.06-.389-.01-.71-.295-.23-.205-.345-.405-.49-.701-.68-1.385-1.393-3.397-1.667-5.323a18.884 18.884 0 0 1-.206-2.666c0-1.514.238-2.807.726-3.954.367-.86.983-1.58 1.782-2.083a13.892 13.892 0 0 1 6.526-2.122 13.9 13.9 0 0 1 .815-.026h.02c.274 0 .548.01.818.026 2.282.138 4.539.873 6.525 2.122a4.583 4.583 0 0 1 1.782 2.082zm-4.763 14.526c-.088.019-.361.083-.632.157-.243.067-.483.12-.597.143a16.51 16.51 0 0 1-3.115.285h-.028c-1.117 0-2.177-.103-3.114-.285a9.23 9.23 0 0 1-.56-.133 14.987 14.987 0 0 0-.604-.148c-.418-.095-.796-.163-.817-.083-.025.093.162.288.401.472.056.042.195.14.357.22.15.073.32.128.386.15 1.098.355 2.346.502 3.941.502h.022c1.563 0 2.794-.142 3.877-.483.371-.117.59-.211.853-.42.22-.174.385-.353.361-.44-.02-.075-.348-.021-.731.063zm-2.508-10.313c-.145-.81-.32-1.432-.518-1.85l-.002-.004h-.021l-.682-.006h-.01l-.027 2.998h1.426l-.001-.01c0-.005-.056-.522-.165-1.128zm5.76 1.687c-.322 2.228-.88 4.623-1.66 6.701-.13.35-.248.48-.53.7a6.23 6.23 0 0 1-2.431 1.028c-.897.175-1.908.272-2.974.272h-.029a15.66 15.66 0 0 1-2.973-.272 6.23 6.23 0 0 1-2.433-1.028c-.282-.22-.399-.35-.527-.7-.782-2.078-1.34-4.473-1.661-6.701-.373-2.577-.35-4.847.18-6.202.067-.17.138-.292.19-.369.046-.065.078-.1.078-.1 1.068-1.07 4.06-1.652 7.16-1.652 3.101 0 6.093.582 7.16 1.653 0 0 .032.033.078.1.052.076.124.197.19.368.531 1.355.554 3.625.182 6.202zM8.904 7.565L6.222 7.55l.267 9.337 1.122.012-.016-4.25h1.014v-1.097H7.595V8.66h1.31V7.564zm1.876-.02l-1.365.003.181 9.35h1.157l.027-9.352zm3.448.014h-2.732l.108 9.334h1.092l.009-4.222h1.418l.002.007c.128.797.138 4.171.138 4.205v.015h1.063l.009-.479c.048-2.42.13-6.469-1.107-8.86zm4.32-.013l-3.344.013v1.077h.998v.01l-.042 8.252h1.132l.275-8.262h.981v-1.09zM23.975 12c0 6.617-5.372 12-11.976 12C5.397 24 .025 18.617.025 12S5.397 0 12 0c6.604 0 11.976 5.383 11.976 12zm-.33-.008C23.64 5.561 18.418.33 11.998.33 5.642.33.46 5.463.358 11.811a1.71 1.71 0 0 1 .684-.78c.655-.388.834-1.385.893-1.981l.012-.062c-.039.395-.07.79-.07 1.218 0 .832.07 1.718.21 2.708.412 2.9 1.813 6.007 2.637 6.958l.046.05.192.202.007.006c2.01 1.647 3.857 2.23 7.061 2.23h.022c3.203 0 5.05-.583 7.06-2.23l.009-.006.185-.197.052-.056c.826-.954 2.226-4.057 2.638-6.957.14-.99.209-1.876.209-2.708 0-.454-.021-.89-.064-1.309l.006.006c.06.597.379 2.141.995 2.586.21.152.375.317.503.503z"}};
+const BASE=[{"id": "V101", "marca": "volkswagen", "modelo": "Nivus 200 TSI Highline", "ano": "2023/2024", "km": 66900, "preco": 116900, "cambio": "Automático", "comb": "Flex", "motor": "1.0 turbo / 128 cv", "cor": null, "bancos": null, "tipo": "suv", "status": "disponivel", "novo": 0, "ordem": 0, "capa": "fotos/V101/card.jpg", "fotos": ["fotos/V101/01.jpg", "fotos/V101/02.jpg", "fotos/V101/03.jpg", "fotos/V101/04.jpg", "fotos/V101/05.jpg", "fotos/V101/06.jpg", "fotos/V101/07.jpg", "fotos/V101/08.jpg", "fotos/V101/09.jpg", "fotos/V101/10.jpg", "fotos/V101/11.jpg", "fotos/V101/12.jpg", "fotos/V101/13.jpg"], "minis": ["fotos/V101/m01.jpg", "fotos/V101/m02.jpg", "fotos/V101/m03.jpg", "fotos/V101/m04.jpg", "fotos/V101/m05.jpg", "fotos/V101/m06.jpg", "fotos/V101/m07.jpg", "fotos/V101/m08.jpg", "fotos/V101/m09.jpg", "fotos/V101/m10.jpg", "fotos/V101/m11.jpg", "fotos/V101/m12.jpg", "fotos/V101/m13.jpg"], "destaques": [], "texto": ""}, {"id": "V102", "marca": "chevrolet", "modelo": "Sonic LTZ", "ano": "2012/2012", "km": 63000, "preco": 43900, "cambio": "Automático", "comb": "Flex", "motor": "1.6 / 120 cv", "cor": null, "bancos": null, "tipo": "sedan", "status": "disponivel", "novo": 0, "ordem": 1, "capa": "fotos/V102/card.jpg", "fotos": ["fotos/V102/01.jpg", "fotos/V102/02.jpg", "fotos/V102/03.jpg", "fotos/V102/04.jpg", "fotos/V102/05.jpg", "fotos/V102/06.jpg", "fotos/V102/07.jpg", "fotos/V102/08.jpg", "fotos/V102/09.jpg", "fotos/V102/10.jpg", "fotos/V102/11.jpg", "fotos/V102/12.jpg", "fotos/V102/13.jpg"], "minis": ["fotos/V102/m01.jpg", "fotos/V102/m02.jpg", "fotos/V102/m03.jpg", "fotos/V102/m04.jpg", "fotos/V102/m05.jpg", "fotos/V102/m06.jpg", "fotos/V102/m07.jpg", "fotos/V102/m08.jpg", "fotos/V102/m09.jpg", "fotos/V102/m10.jpg", "fotos/V102/m11.jpg", "fotos/V102/m12.jpg", "fotos/V102/m13.jpg"], "destaques": ["Laudo cautelar aprovado", "Completo"], "texto": "Conforto, desempenho e baixa quilometragem em um sedã que entrega muito pelo valor!"}, {"id": "V103", "marca": "hyundai", "modelo": "HB20 Evolution", "ano": "2021/2022", "km": 74000, "preco": 78900, "cambio": "Automático", "comb": "Flex", "motor": "1.0 turbo / 120 cv", "cor": null, "bancos": null, "tipo": "sedan", "status": "disponivel", "novo": 0, "ordem": 2, "capa": "fotos/V103/card.jpg", "fotos": ["fotos/V103/01.jpg", "fotos/V103/02.jpg", "fotos/V103/03.jpg", "fotos/V103/04.jpg", "fotos/V103/05.jpg", "fotos/V103/06.jpg", "fotos/V103/07.jpg", "fotos/V103/08.jpg", "fotos/V103/09.jpg", "fotos/V103/10.jpg", "fotos/V103/11.jpg", "fotos/V103/12.jpg", "fotos/V103/13.jpg", "fotos/V103/14.jpg"], "minis": ["fotos/V103/m01.jpg", "fotos/V103/m02.jpg", "fotos/V103/m03.jpg", "fotos/V103/m04.jpg", "fotos/V103/m05.jpg", "fotos/V103/m06.jpg", "fotos/V103/m07.jpg", "fotos/V103/m08.jpg", "fotos/V103/m09.jpg", "fotos/V103/m10.jpg", "fotos/V103/m11.jpg", "fotos/V103/m12.jpg", "fotos/V103/m13.jpg", "fotos/V103/m14.jpg"], "destaques": [], "texto": ""}, {"id": "V104", "marca": "hyundai", "modelo": "HB20 Comfort", "ano": "2023/2024", "km": null, "preco": 74900, "cambio": "Manual", "comb": "Flex", "motor": "1.0 / 80 cv", "cor": null, "bancos": null, "tipo": "sedan", "status": "disponivel", "novo": 0, "ordem": 3, "capa": "fotos/V104/card.jpg", "fotos": ["fotos/V104/01.jpg", "fotos/V104/02.jpg", "fotos/V104/03.jpg", "fotos/V104/04.jpg", "fotos/V104/05.jpg", "fotos/V104/06.jpg", "fotos/V104/07.jpg", "fotos/V104/08.jpg", "fotos/V104/09.jpg", "fotos/V104/10.jpg", "fotos/V104/11.jpg", "fotos/V104/12.jpg", "fotos/V104/13.jpg", "fotos/V104/14.jpg"], "minis": ["fotos/V104/m01.jpg", "fotos/V104/m02.jpg", "fotos/V104/m03.jpg", "fotos/V104/m04.jpg", "fotos/V104/m05.jpg", "fotos/V104/m06.jpg", "fotos/V104/m07.jpg", "fotos/V104/m08.jpg", "fotos/V104/m09.jpg", "fotos/V104/m10.jpg", "fotos/V104/m11.jpg", "fotos/V104/m12.jpg", "fotos/V104/m13.jpg", "fotos/V104/m14.jpg"], "destaques": [], "texto": ""}, {"id": "V105", "marca": "jeep", "modelo": "Renegade Sport Edição 75 Anos", "ano": "2016/2017", "km": null, "preco": 69900, "cambio": "Automático", "comb": "Flex", "motor": "1.8 / 139 cv", "cor": null, "bancos": null, "tipo": "suv", "status": "disponivel", "novo": 0, "ordem": 4, "capa": "fotos/V105/card.jpg", "fotos": ["fotos/V105/01.jpg", "fotos/V105/02.jpg", "fotos/V105/03.jpg", "fotos/V105/04.jpg", "fotos/V105/05.jpg", "fotos/V105/06.jpg", "fotos/V105/07.jpg", "fotos/V105/08.jpg", "fotos/V105/09.jpg", "fotos/V105/10.jpg", "fotos/V105/11.jpg", "fotos/V105/12.jpg", "fotos/V105/13.jpg", "fotos/V105/14.jpg"], "minis": ["fotos/V105/m01.jpg", "fotos/V105/m02.jpg", "fotos/V105/m03.jpg", "fotos/V105/m04.jpg", "fotos/V105/m05.jpg", "fotos/V105/m06.jpg", "fotos/V105/m07.jpg", "fotos/V105/m08.jpg", "fotos/V105/m09.jpg", "fotos/V105/m10.jpg", "fotos/V105/m11.jpg", "fotos/V105/m12.jpg", "fotos/V105/m13.jpg", "fotos/V105/m14.jpg"], "destaques": [], "texto": ""}, {"id": "V106", "marca": "chevrolet", "modelo": "Spin LTZ", "ano": "2013/2013", "km": null, "preco": 57900, "cambio": "Automático", "comb": "Flex", "motor": "1.8 / 108 cv", "cor": null, "bancos": null, "tipo": "minivan", "status": "disponivel", "novo": 0, "ordem": 5, "capa": "fotos/V106/card.jpg", "fotos": ["fotos/V106/01.jpg", "fotos/V106/02.jpg", "fotos/V106/03.jpg", "fotos/V106/04.jpg", "fotos/V106/05.jpg", "fotos/V106/06.jpg", "fotos/V106/07.jpg", "fotos/V106/08.jpg", "fotos/V106/09.jpg", "fotos/V106/10.jpg", "fotos/V106/11.jpg", "fotos/V106/12.jpg"], "minis": ["fotos/V106/m01.jpg", "fotos/V106/m02.jpg", "fotos/V106/m03.jpg", "fotos/V106/m04.jpg", "fotos/V106/m05.jpg", "fotos/V106/m06.jpg", "fotos/V106/m07.jpg", "fotos/V106/m08.jpg", "fotos/V106/m09.jpg", "fotos/V106/m10.jpg", "fotos/V106/m11.jpg", "fotos/V106/m12.jpg"], "destaques": [], "texto": ""}, {"id": "V107", "marca": "volkswagen", "modelo": "Voyage", "ano": "2022/2023", "km": null, "preco": 62900, "cambio": "Manual", "comb": "Flex", "motor": "1.0 / 84 cv", "cor": null, "bancos": null, "tipo": "sedan", "status": "disponivel", "novo": 0, "ordem": 6, "capa": "fotos/V107/card.jpg", "fotos": ["fotos/V107/01.jpg", "fotos/V107/02.jpg", "fotos/V107/03.jpg", "fotos/V107/04.jpg", "fotos/V107/05.jpg", "fotos/V107/06.jpg", "fotos/V107/07.jpg", "fotos/V107/08.jpg", "fotos/V107/09.jpg", "fotos/V107/10.jpg", "fotos/V107/11.jpg"], "minis": ["fotos/V107/m01.jpg", "fotos/V107/m02.jpg", "fotos/V107/m03.jpg", "fotos/V107/m04.jpg", "fotos/V107/m05.jpg", "fotos/V107/m06.jpg", "fotos/V107/m07.jpg", "fotos/V107/m08.jpg", "fotos/V107/m09.jpg", "fotos/V107/m10.jpg", "fotos/V107/m11.jpg"], "destaques": [], "texto": ""}, {"id": "V108", "marca": "renault", "modelo": "Kwid Zen", "ano": "2019/2020", "km": null, "preco": 41900, "cambio": "Manual", "comb": "Flex", "motor": "1.0 / 70 cv", "cor": null, "bancos": null, "tipo": "hatch", "status": "disponivel", "novo": 0, "ordem": 7, "capa": "fotos/V108/card.jpg", "fotos": ["fotos/V108/01.jpg", "fotos/V108/02.jpg", "fotos/V108/03.jpg", "fotos/V108/04.jpg", "fotos/V108/05.jpg", "fotos/V108/06.jpg", "fotos/V108/07.jpg", "fotos/V108/08.jpg", "fotos/V108/09.jpg", "fotos/V108/10.jpg", "fotos/V108/11.jpg", "fotos/V108/12.jpg"], "minis": ["fotos/V108/m01.jpg", "fotos/V108/m02.jpg", "fotos/V108/m03.jpg", "fotos/V108/m04.jpg", "fotos/V108/m05.jpg", "fotos/V108/m06.jpg", "fotos/V108/m07.jpg", "fotos/V108/m08.jpg", "fotos/V108/m09.jpg", "fotos/V108/m10.jpg", "fotos/V108/m11.jpg", "fotos/V108/m12.jpg"], "destaques": [], "texto": ""}, {"id": "V109", "marca": "fiat", "modelo": "Toro Freedom", "ano": "2025/2026", "km": null, "preco": 149900, "cambio": "Automático", "comb": "Flex", "motor": "1.3 turbo / 176 cv", "cor": null, "bancos": null, "tipo": "picape", "status": "disponivel", "novo": 0, "ordem": 8, "capa": "fotos/V109/card.jpg", "fotos": ["fotos/V109/01.jpg", "fotos/V109/02.jpg", "fotos/V109/03.jpg", "fotos/V109/04.jpg", "fotos/V109/05.jpg", "fotos/V109/06.jpg", "fotos/V109/07.jpg", "fotos/V109/08.jpg", "fotos/V109/09.jpg", "fotos/V109/10.jpg", "fotos/V109/11.jpg", "fotos/V109/12.jpg", "fotos/V109/13.jpg", "fotos/V109/14.jpg", "fotos/V109/15.jpg"], "minis": ["fotos/V109/m01.jpg", "fotos/V109/m02.jpg", "fotos/V109/m03.jpg", "fotos/V109/m04.jpg", "fotos/V109/m05.jpg", "fotos/V109/m06.jpg", "fotos/V109/m07.jpg", "fotos/V109/m08.jpg", "fotos/V109/m09.jpg", "fotos/V109/m10.jpg", "fotos/V109/m11.jpg", "fotos/V109/m12.jpg", "fotos/V109/m13.jpg", "fotos/V109/m14.jpg", "fotos/V109/m15.jpg"], "destaques": ["Único dono", "IPVA 2026 pago"], "texto": ""}, {"id": "V110", "marca": "volkswagen", "modelo": "Nivus Highline", "ano": "2024/2025", "km": null, "preco": 132900, "cambio": "Automático", "comb": "Flex", "motor": "1.0 turbo / 128 cv", "cor": null, "bancos": null, "tipo": "suv", "status": "disponivel", "novo": 0, "ordem": 9, "capa": "fotos/V110/card.jpg", "fotos": ["fotos/V110/01.jpg", "fotos/V110/02.jpg", "fotos/V110/03.jpg", "fotos/V110/04.jpg", "fotos/V110/05.jpg", "fotos/V110/06.jpg", "fotos/V110/07.jpg", "fotos/V110/08.jpg", "fotos/V110/09.jpg", "fotos/V110/10.jpg", "fotos/V110/11.jpg", "fotos/V110/12.jpg", "fotos/V110/13.jpg", "fotos/V110/14.jpg"], "minis": ["fotos/V110/m01.jpg", "fotos/V110/m02.jpg", "fotos/V110/m03.jpg", "fotos/V110/m04.jpg", "fotos/V110/m05.jpg", "fotos/V110/m06.jpg", "fotos/V110/m07.jpg", "fotos/V110/m08.jpg", "fotos/V110/m09.jpg", "fotos/V110/m10.jpg", "fotos/V110/m11.jpg", "fotos/V110/m12.jpg", "fotos/V110/m13.jpg", "fotos/V110/m14.jpg"], "destaques": ["IPVA 2026 pago"], "texto": ""}];
+const CORES={Prata:'#b9bec4',Branco:'#f4f4f4',Preto:'#25282d',Cinza:'#6b7178',Azul:'#2f5d9e',Vermelho:'#b3262d',Laranja:'#d9661f',Verde:'#2e7d4f',Bege:'#cbb79a'};
+const CORPO={
+ hatch:['M22,104 L22,80 Q24,68 42,66 L92,62 L126,36 Q134,30 150,30 L238,30 Q256,31 264,48 L280,70 Q298,74 298,90 L298,104 Z','M104,62 L132,38 Q138,35 150,35 L186,35 L186,62 Z M194,62 L194,35 L236,35 Q250,36 256,50 L262,62 Z'],
+ sedan:['M18,104 L18,82 Q20,70 38,68 L92,64 L128,38 Q138,32 158,32 L212,32 Q230,33 244,46 L266,66 L296,72 Q306,75 306,88 L306,104 Z','M106,64 L134,40 Q142,36 156,36 L180,36 L180,64 Z M188,64 L188,36 L210,36 Q226,37 236,48 L250,64 Z'],
+ suv:['M18,104 L18,74 Q20,62 36,60 L86,56 L108,26 Q114,20 128,20 L262,20 Q278,21 284,36 L292,60 Q304,64 304,80 L304,104 Z','M98,56 L116,30 Q120,25 130,25 L182,25 L182,56 Z M190,56 L190,25 L258,25 Q272,26 276,38 L282,56 Z'],
+ picape:['M14,104 L14,76 Q16,64 32,62 L78,58 L102,28 Q108,22 122,22 L186,22 Q196,22 198,32 L200,60 L302,60 Q308,60 308,70 L308,104 Z','M92,58 L110,32 Q114,27 124,27 L150,27 L150,58 Z M158,58 L158,27 L186,27 Q192,27 193,34 L194,58 Z']};
+function svgCarro(c){const [b,j]=CORPO[c.tipo]||CORPO.sedan;const cor=CORES[c.cor]||'#9aa3ad';const borda=c.cor==='Branco'?'#c9ced4':'rgba(0,0,0,.18)';
+ return `<svg viewBox="0 0 320 140" aria-hidden="true"><ellipse cx="160" cy="124" rx="140" ry="7" fill="rgba(0,0,0,.12)"/><path d="${b}" fill="${cor}" stroke="${borda}" stroke-width="2"/><path d="${j}" fill="rgba(200,225,245,.75)"/><circle cx="80" cy="106" r="20" fill="#1d2025"/><circle cx="80" cy="106" r="9" fill="#9aa3ad"/><circle cx="244" cy="106" r="20" fill="#1d2025"/><circle cx="244" cy="106" r="9" fill="#9aa3ad"/></svg>`}
+function ler(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}}
+function gravar(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+let extras=ler('v4_extras',[]), statusMud=ler('v4_status',{}), favs=ler('v4_favs',[]), fotos={};
+function todos(){return [...extras,...BASE].map(c=>({...c,status:statusMud[c.id]||c.status}))}
+// v2 (audio 4850): VENDIDO SAI DO SITE - o cliente nao ve, nao acessa, nao gera desejo no que nao existe; so o painel ve
+function estoque(){return todos().filter(c=>c.status!=='vendido')}
+const brl=v=>'R$ '+Number(v).toLocaleString('pt-BR');
+const kmf=v=>v?Number(v).toLocaleString('pt-BR')+' km':'';
+const norm=s=>(s||'').toString().normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const FILTROS=[['ate50','Até R$ 50 mil',c=>c.preco<=50000],['ate70','Até R$ 70 mil',c=>c.preco<=70000],['ate100','Até R$ 100 mil',c=>c.preco<=100000],['auto','Automático',c=>c.cambio==='Automático'],['suv','SUV',c=>c.tipo==='suv'],['picape','Picape',c=>c.tipo==='picape']];
+let st={q:'',marca:'',f:''};
+const $=s=>document.querySelector(s);
+function filtrar(){const q=norm(st.q).split(/\s+/).filter(Boolean);const f=FILTROS.find(x=>x[0]===st.f);
+ return estoque().filter(c=>(!st.marca||c.marca===st.marca)&&(!f||f[2](c))&&q.every(t=>norm([MARCAS[c.marca]?.nome,c.modelo,c.ano,c.cor,c.comb,c.cambio,c.tipo,c.id].join(' ')).includes(t)))
+  .sort((a,b)=>(a.status==='vendido')-(b.status==='vendido'))}
+function card(c){const fav=favs.includes(c.id);const selo=c.status!=='disponivel'?`<span class="selo ${c.status}">${c.status==='vendido'?'VENDIDO':'RESERVADO'}</span>`:(c.novo?'<span class="selo novo">CHEGOU</span>':'');
+ const img=c.capa?`<img src="${c.capa}" alt="${c.modelo}" loading="lazy">`:fotos[c.id]?`<img src="${fotos[c.id]}" alt="">`:svgCarro(c)+'<span class="leg">foto do carro aqui</span>';
+ return `<div class="car ${c.status}"><button class="fav ${fav?'on':''}" onclick="event.stopPropagation();favoritar('${c.id}',this)" aria-label="Favoritar"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+ <button onclick="ir('carro/${c.id}')" style="text-align:left;display:flex;flex-direction:column"><div class="foto">${selo}${img}</div>
+ <div class="info"><div class="tit"><small>${MARCAS[c.marca]?.nome||''}</small>${c.modelo}</div><div class="dados">${[c.ano,kmf(c.km),c.cambio,c.comb].filter(Boolean).map(x=>`<span>${x}</span>`).join('')}</div><div class="preco">${brl(c.preco)}</div></div></button></div>`}
+function telaInicio(){const est=estoque();const cont={};est.forEach(c=>cont[c.marca]=(cont[c.marca]||0)+1);
+ const ms=Object.keys(MARCAS).filter(m=>cont[m]).sort((a,b)=>cont[b]-cont[a]);
+ const lista=filtrar();const busca=st.q||st.marca||st.f;
+ const novos=estoque().filter(c=>c.novo&&c.status!=='vendido').sort((a,b)=>b.ordem-a.ordem).slice(0,6);
+ $('#app').innerHTML=`
+ <h2>Escolha a marca <small>${est.length} carros disponíveis</small></h2>
+ <div class="marcas">${ms.map(m=>`<button class="marca ${st.marca===m?'on':''}" onclick="porMarca('${m}')"><svg viewBox="0 0 24 24"><path d="${MARCAS[m].d}"/></svg><b>${MARCAS[m].nome}</b><span>${cont[m]} ${cont[m]>1?'carros':'carro'}</span></button>`).join('')}</div>
+ <h2 style="margin-top:18px">Filtro rápido</h2>
+ <div class="chips">${FILTROS.map(f=>`<button class="chip ${st.f===f[0]?'on':''}" onclick="porFiltro('${f[0]}')">${f[1]}</button>`).join('')}</div>
+ ${busca?`<h2>${lista.length} ${lista.length===1?'carro encontrado':'carros encontrados'}</h2><div class="filtro-ativo" style="margin:-6px 0 12px">${st.marca?`<span class="chip on">${MARCAS[st.marca].nome}</span>`:''}${st.f?`<span class="chip on">${FILTROS.find(x=>x[0]===st.f)[1]}</span>`:''}${st.q?`<span class="chip on">“${st.q}”</span>`:''}<button onclick="limpar()">limpar</button></div>
+  ${lista.length?`<div class="grade">${lista.map(card).join('')}</div>`:`<div class="vazio">Nenhum carro com esse filtro agora.<br><br><button class="btn zap" onclick="zap('Olá! Procuro um carro que não achei no site: '+(st.q||''))">Me avise quando chegar</button></div>`}`
+ :`${novos.length?`<h2>Chegaram agora</h2><div class="grade">${novos.map(card).join('')}</div>`:''}
+  <h2>Todo o estoque</h2><div class="grade">${lista.filter(c=>!c.novo).map(card).join('')}</div>`}
+ <div class="loja"><div><b>📍 Endereço</b>Av. Exemplo, 1000 · Centro · Jataí-GO</div><div><b>🕗 Horário</b>Seg a sex 8h–18h · Sáb 8h–12h</div><div><b>📅 Visita</b><button class="btn sec" style="padding:8px 12px;font-size:13px;margin-top:4px" onclick="zap('Olá! Quero agendar uma visita pra ver os carros.')">Agendar pelo WhatsApp</button></div></div>`}
+function telaCarro(id){const c=estoque().find(x=>x.id===id);if(!c){ir('');return}
+ galMinis=c.minis||[];const opc=c.destaques||[];const fs=c.fotos||(fotos[c.id]?[fotos[c.id]]:[]);gi=0;galFotos=fs;
+ const img=fs.length?`<img id="gimg" src="${fs[0]}" alt="${c.modelo}" onclick="zoom(1)" style="cursor:zoom-in">${fs.length>1?`<button class="seta e" onclick="gal(-1)" aria-label="Anterior">‹</button><button class="seta d" onclick="gal(1)" aria-label="Próxima">›</button><span class="cont" id="gcont">1/${fs.length}</span>`:''}`:svgCarro(c)+'<span class="leg">foto do carro aqui</span>';
+ const selo=c.status!=='disponivel'?`<span class="selo ${c.status}">${c.status==='vendido'?'VENDIDO':'RESERVADO'}</span>`:'';
+ const msg=`Olá! Vi no site o ${MARCAS[c.marca].nome} ${c.modelo} ${c.ano} (código ${c.id}, ${brl(c.preco)}). Ainda está disponível?`;
+ zapMsg=msg;
+ $('#app').innerHTML=`<button class="voltar" onclick="history.back()">← Voltar</button>
+ <div class="hero"><div class="mc">${MARCAS[c.marca].nome}</div><h1>${c.modelo}</h1>
+  <div class="tres">${[['Ano',c.ano],['Km',c.km?Number(c.km).toLocaleString('pt-BR'):''],['Valor',brl(c.preco)]].filter(x=>x[1]).map(x=>`<div><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}</div>
+  <div class="galeria palco"><div class="foto">${selo}${img}</div>${fs.length>1?`<div class="pontos" id="gpts">${fs.map((f,i)=>`<i class="${i?'':'on'}" onclick="gal(${i},1)"></i>`).join('')}</div>`:''}</div></div>
+ <div class="ficha uma">
+ <div class="painel-ficha"><div class="secao" style="margin:0">Especificações</div>
+ <div class="specs">${[['Ano',c.ano],['Quilometragem',kmf(c.km)],['Cor',c.cor],['Motorização',c.motor],['Bancos',c.bancos],['Câmbio',c.cambio],['Combustível',c.comb]].filter(x=>x[1]).map(x=>`<div class="spec"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}</div>
+ ${opc.length||c.texto?`<div><b style="font-size:13px">Detalhes</b>${opc.length?`<div class="opc" style="margin-top:8px">${opc.map(o=>`<span>${o}</span>`).join('')}</div>`:''}${c.texto?`<p style="font-size:14px;color:var(--suave);margin-top:8px">${c.texto}</p>`:''}</div>`:''}
+ <button class="btn sec" onclick="favoritar('${c.id}');telaCarro('${c.id}')">${favs.includes(c.id)?'♥ Nos favoritos':'♡ Salvar nos favoritos'}</button>
+ <div class="cod">Código deste carro: <b>${c.id}</b> · vira o link próprio dele (QR no vidro e Instagram)</div></div></div>`}
+let gi=0,galFotos=[],galMinis=[],zapMsg='';
+function lupa(){const on=document.body.classList.toggle('busca-on');if(on)setTimeout(()=>$('#q').focus(),30)}
+function menu(on){$('#menu').classList.toggle('on',!!on)}
+function gal(n,abs){if(!galFotos.length)return;gi=abs?n:(gi+n+galFotos.length)%galFotos.length;const g=$('#gimg');if(g)g.src=galFotos[gi];const t=(gi+1)+'/'+galFotos.length;const ct=$('#gcont');if(ct)ct.textContent=t;document.querySelectorAll('#gpts i').forEach((m,i)=>m.classList.toggle('on',i===gi));const z=$('#zimg');if(z){z.src=galFotos[gi];$('#zcont').textContent=t;document.querySelectorAll('#zmin img').forEach((m,i)=>{m.classList.toggle('on',i===gi);if(i===gi&&$('#zoom').classList.contains('on'))m.scrollIntoView({block:'nearest',inline:'center'})})}}
+function zoom(on){const Z=$('#zoom');if(on){$('#zmin').innerHTML=galFotos.length>1?galMinis.map((m,i)=>`<img src="${m}" onclick="gal(${i},1)" alt="">`).join(''):'';Z.querySelectorAll('.seta').forEach(s=>s.style.display=galFotos.length>1?'':'none');Z.classList.add('on');document.body.style.overflow='hidden';gal(gi,1)}else{Z.classList.remove('on');document.body.style.overflow=''}}
+document.addEventListener('keydown',e=>{if(!$('#zoom').classList.contains('on'))return;if(e.key==='Escape')zoom(0);if(e.key==='ArrowRight')gal(1);if(e.key==='ArrowLeft')gal(-1)});
+function telaFavoritos(){const l=estoque().filter(c=>favs.includes(c.id));
+ $('#app').innerHTML=`<button class="voltar" onclick="ir('')">← Início</button><h2>Seus favoritos <small>ficam salvos neste celular, sem cadastro</small></h2>${l.length?`<div class="grade">${l.map(card).join('')}</div>`:'<div class="vazio">Toque no ♡ de um carro para guardar aqui.</div>'}`}
+function telaPainel(){const est=todos();
+ $('#app').innerHTML=`<button class="voltar" onclick="ir('')">← Ver o site</button>
+ <h2>Área do corretor <small>cadastrar um carro em 2 minutos</small></h2>
+ <div class="passos"><span>1 · fotos</span><span>2 · dados</span><span>3 · publicar</span></div>
+ <form class="form" id="fcad" onsubmit="cadastrar(event)" style="margin-top:12px">
+ <label class="full upl" for="ffoto">📷 Toque para escolher a foto do carro<br><small>(na prévia ela fica só neste aparelho)</small><input id="ffoto" type="file" accept="image/*" hidden></label>
+ <label>Marca<select name="marca" required>${Object.keys(MARCAS).map(m=>`<option value="${m}">${MARCAS[m].nome}</option>`).join('')}</select></label>
+ <label>Modelo e versão<input name="modelo" required placeholder="ex.: Corolla XEi 2.0"></label>
+ <label>Ano<input name="ano" type="number" inputmode="numeric" required placeholder="2020" min="1980" max="2027"></label>
+ <label>Quilometragem<input name="km" type="number" inputmode="numeric" required placeholder="45000"></label>
+ <label>Preço (R$)<input name="preco" type="number" inputmode="numeric" required placeholder="89900"></label>
+ <label>Câmbio<select name="cambio"><option>Automático</option><option>Manual</option></select></label>
+ <label>Combustível<select name="comb"><option>Flex</option><option>Diesel</option><option>Gasolina</option><option>Elétrico</option><option>Híbrido</option></select></label>
+ <label>Cor<select name="cor">${Object.keys(CORES).map(c=>`<option>${c}</option>`).join('')}</select></label>
+ <label>Tipo<select name="tipo"><option value="hatch">Hatch</option><option value="sedan">Sedã</option><option value="suv">SUV</option><option value="picape">Picape</option></select></label>
+ <div class="full aviso-ok" id="ok">Publicado! Já aparece em “Chegaram agora”.</div>
+ <button class="btn pri full" type="submit">Publicar no site</button></form>
+ <h2>Estoque <small>marcou vendido, o carro sai do site na hora</small></h2>
+ <div class="lista-adm">${est.map(c=>`<div class="adm"><div class="t"><b>${MARCAS[c.marca].nome} ${c.modelo}</b><span>${c.id} · ${c.ano} · ${brl(c.preco)}</span></div><select onchange="mudarStatus('${c.id}',this.value)">${['disponivel','reservado','vendido'].map(s=>`<option value="${s}" ${c.status===s?'selected':''}>${{disponivel:'Disponível',reservado:'Reservado',vendido:'Vendido (sai do site)'}[s]}</option>`).join('')}</select></div>`).join('')}</div>
+ ${extras.length||Object.keys(statusMud).length?'<p style="margin-top:12px;font-size:12px;color:var(--suave)">Mudanças desta prévia ficam só neste aparelho. <button style="text-decoration:underline;font-size:12px;color:var(--marca)" onclick="zerar()">desfazer as mudanças desta prévia</button></p>':''}`;
+ $('#ffoto').onchange=e=>{const f=e.target.files[0];if(f){$('.upl').innerHTML='✅ '+f.name;$('.upl').dataset.url=URL.createObjectURL(f)}}}
+function cadastrar(e){e.preventDefault();const d=Object.fromEntries(new FormData(e.target));const id='V'+(200+extras.length+1);
+ const c={id,marca:d.marca,modelo:d.modelo,ano:+d.ano,km:+d.km,preco:+d.preco,cambio:d.cambio,comb:d.comb,cor:d.cor,tipo:d.tipo,status:'disponivel',novo:1,ordem:1000+extras.length};
+ const u=$('.upl').dataset.url;if(u)fotos[id]=u;extras.unshift(c);gravar('v4_extras',extras);telaPainel();$('#ok').style.display='block';$('#ok').innerHTML=`Publicado! <b>${MARCAS[c.marca].nome} ${c.modelo}</b> já aparece em “Chegaram agora”. <a href="#" onclick="ir('');return false">ver no site</a>`}
+function mudarStatus(id,s){statusMud[id]=s;gravar('v4_status',statusMud)}
+function zerar(){extras=[];statusMud={};gravar('v4_extras',[]);gravar('v4_status',{});telaPainel()}
+function favoritar(id,el){favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];gravar('v4_favs',favs);if(el)el.classList.toggle('on');contarFav()}
+function contarFav(){$('#nfav').textContent=favs.length||''}
+function porMarca(m){st.marca=st.marca===m?'':m;telaInicio();rolarResultado()}
+function porFiltro(f){st.f=st.f===f?'':f;telaInicio();rolarResultado()}
+function limpar(){st={q:'',marca:'',f:''};$('#q').value='';document.body.classList.remove('busca-on');telaInicio()}
+function rolarResultado(){const h=document.querySelectorAll('#app h2')[2];if(h&&innerWidth<700)h.scrollIntoView({behavior:'smooth',block:'start'})}
+function zap(msg){msg=msg||zapMsg||'Olá! Vim pelo site da Marcelo R2.';$('#modal').innerHTML=`<h3>WhatsApp do corretor</h3><p>Na versão real, este botão abre o WhatsApp do corretor já com a mensagem escrita:</p><div class="bolha">${msg}</div><p>Assim o cliente chega dizendo <b>qual</b> carro quer.</p><button class="btn pri" onclick="fechar()">Entendi</button>`;$('#fundo').classList.add('on')}
+function fechar(){$('#fundo').classList.remove('on')}
+function ir(r){if(location.hash.slice(1)===r)rota();else location.hash=r}
+function rota(){const h=decodeURIComponent(location.hash.slice(1));window.scrollTo(0,0);
+ document.body.classList.toggle('sem-zap',h==='painel');if(!h.startsWith('carro/'))zapMsg='';document.body.classList.toggle('painel',h==='painel');
+ if(h.startsWith('carro/'))telaCarro(h.slice(6));else if(h==='painel')telaPainel();else if(h==='favoritos')telaFavoritos();else telaInicio()}
+$('#q').addEventListener('input',e=>{st.q=e.target.value;if(location.hash&&location.hash!=='#'){location.hash=''}else telaInicio()});
+let tx=null;document.addEventListener('touchstart',e=>{if(e.target.id==='gimg'||e.target.id==='zimg')tx=e.touches[0].clientX},{passive:true});document.addEventListener('touchend',e=>{if(tx!==null){const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)gal(dx<0?1:-1);tx=null}});
+addEventListener('hashchange',rota);contarFav();rota();
+</script>
+<script>(function(){const H=document.querySelector("header");function m(){document.body.style.setProperty("--alt-topo",H.offsetHeight+"px")}m();new ResizeObserver(m).observe(H);addEventListener("resize",m)})()</script>
+</body>
+</html>
