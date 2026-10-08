@@ -1,0 +1,18 @@
+{
+  "name": "Marcello R2 · Seminovos",
+  "short_name": "Marcello R2",
+  "description": "Seminovos da R2 Multimarcas em Jataí-GO com o Marcello Moraes: carros com fotos e preços reais e contato direto pelo WhatsApp.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "lang": "pt-BR",
+  "background_color": "#EFE9E3",
+  "theme_color": "#fefefe",
+  "icons": [
+    {
+      "src": "/logo_r2_simbolo.png",
+      "type": "image/png",
+      "sizes": "any"
+    }
+  ]
+}

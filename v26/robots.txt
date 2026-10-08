@@ -1,0 +1,12 @@
+# Marcello R2 · Seminovos - site de vitrine: tudo liberado de proposito (vive de ser encontrado).
+# O AdsBot do Google ignora o '*': vai liberado pelo nome (regua da casa, zeles-site-de-cliente §7).
+User-agent: *
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+Sitemap: https://www.marcellor2.com.br/sitemap.xml

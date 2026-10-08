@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GERADO por montar_site_ar_marcellor2_v4_kwid_velocidade_cookies.py. Nao editar a mao.
+     A home e uma pagina so (#rotas); cada carro tem a sua pagina em carros/. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.marcellor2.com.br/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r001-volkswagen-nivus-200-tsi-highline.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r002-chevrolet-sonic-ltz.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r003-hyundai-hb20s-evolution.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r004-hyundai-hb20s-comfort.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r005-jeep-renegade-sport-edicao-75-anos.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r006-chevrolet-spin-ltz.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r007-volkswagen-voyage.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r008-renault-kwid-zen.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r009-fiat-toro-freedom.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/carros/r010-volkswagen-nivus-highline.html</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.marcellor2.com.br/privacidade.html</loc><changefreq>yearly</changefreq></url>
+</urlset>
