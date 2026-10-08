@@ -10,9 +10,9 @@
   "theme_color": "#fefefe",
   "icons": [
     {
-      "src": "/logo_r2_simbolo.png",
+      "src": "icone_r2_192.png",
       "type": "image/png",
-      "sizes": "any"
+      "sizes": "192x153"
     }
   ]
 }
